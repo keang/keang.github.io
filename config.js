@@ -1,7 +1,7 @@
 var CONFIG = {};
 
-CONFIG.BLOG_TITLE = 'Blog Title';
-CONFIG.NAV_TITLE = 'Nav Title';
+CONFIG.BLOG_TITLE = "Keang's blog";
+CONFIG.NAV_TITLE = 'Kakaka';
 
 CONFIG.SHOW_SIDEBAR = true;
 CONFIG.NUM_POSTS_IN_SIDEBAR = 5;
@@ -9,5 +9,5 @@ CONFIG.NUM_POSTS_PER_PAGE = 4;
 CONFIG.ENABLE_ANIMATIONS = true;
 
 CONFIG.USE_DISQUS = true;
-CONFIG.DISQUS_SHORT_NAME = 'yangshun';
-CONFIG.SITE_DOMAIN = 'yangshun.im/luna/';
+CONFIG.DISQUS_SHORT_NAME = 'keang';
+CONFIG.SITE_DOMAIN = 'http://kakadadroid.github.io/';
