@@ -28,10 +28,15 @@ function LunaCtrl($scope, $http, $timeout) {
       $scope.posts[i].date = d.toString();
     }
     console.log('all posts loaded');
+    
     $scope.all_posts_loaded = true;
     $timeout(function() {
       $scope.$broadcast('allPostsLoaded');
     }, 0);
+
+    $.getScript("js/prism.js", function(){
+        console.log("done highlighting");
+    });
   });
 }
 
