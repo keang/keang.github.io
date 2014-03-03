@@ -27,6 +27,20 @@ See it [flapping live here](http://kakadadroid.github.io/flappy-quiz/) and if yo
 			<guid type="str">joining-the-flappy-craze</guid>
 		</item>
 		<item type="dict">
+			<description type="str">`render_view` was the missing piece: 
+because rspec by default disables rendering of views to speed up the test. And that's how I was stuck for days trying to find bug in the super short json.
+
+````rails
+    describe Api::V1::TeamsController do
+		render_views
+		it &quot;returns a json array of teams&quot; do
+```</description>
+			<pubDate type="str">2014-03-03</pubDate>
+			<title type="str">Rspec'ing a rials JSON Api</title>
+			<link type="str">http://yangshun.github.io/luna/#/rspec'ing-a-rials-json-api</link>
+			<guid type="str">rspec'ing-a-rials-json-api</guid>
+		</item>
+		<item type="dict">
 			<description type="str">This is yet another blog that I shall promise myself to keep. This one will talk about the projects and cool and uncool things that I've done.
 
 I saw a friend's [super cool blog](http://yangshun.im/cs3216/#/) and after a few minutes of picking around I found his little python-based page generators for blogs, [luna](https://github.com/yangshun/luna). I just lost all the excuses to delay this. Mainly because I just wanted to try out this 'blogging engin'.
