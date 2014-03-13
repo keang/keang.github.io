@@ -79,7 +79,7 @@ After playing with it for awhile I wanted to write an AI that solves the game, b
 
 It's a stupid bot that presses some keys for you, but it scores better than me! Will come back and work on a proper AI soon!
 
-**Update:** Stumbled upon this [super robust AI]( http://ov3y.github.io/2048-AI/) which solves the game! albiet with a bit of lag</description>
+**Update:** I stumbled upon this [super robust AI]( http://ov3y.github.io/2048-AI/) which solves the game! albiet with a bit of lag.</description>
 			<pubDate type="str">2014-03-13</pubDate>
 			<title type="str">2048 bot</title>
 			<link type="str">http://yangshun.github.io/luna/#/2048-bot</link>
