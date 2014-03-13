@@ -8,10 +8,10 @@ Currently it is still in its infancy, and I still have to run the python script 
 
 But for now, you can search the matches chronologically, by teams and by leagues (and easily by casters, but that's not implemented yet). My hope would be to get this thing ready for TI4!([last year's TI here](http://www.dota2.com/international/home/overview/))
 
-	To do:
-	* add in some Gimmie awesomeness in gamification
-	* an iOS client would be great too 
-	* and also to crawl for more matches. 
-
+<ul class="todo">Todo:
+<li class="todoitem">add in some Gimmie awesomeness in gamification</li>
+<li class="todoitem">an iOS client would be great too </li>
+<li class="todoitem">and also to crawl for more matches. </li>
+</ul>
 
 Maybe a script to automatically run the crawling script (which automatically posts matches to through the api). autoception. hah.
