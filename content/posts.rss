@@ -73,7 +73,8 @@ because rspec by default disables rendering of views to speed up the test. And t
 			<guid type="str">rspec'ing-a-rials-json-api</guid>
 		</item>
 		<item type="dict">
-			<description type="str">**Up-update:** I [forked the 2048 game](keang.me/2048) and added a looper feature, where anyone can create their stupid bot!
+			<description type="str">**Up-update:** I [forked the 2048 game](http://keang.me/2048) and added a looper feature, where anyone can create their stupid bot!
+
 **Update:** I stumbled upon this [super robust AI]( http://ov3y.github.io/2048-AI/) which solves the game! albiet with a bit of lag.
 
 In the past 2 days my facebook newsfeed flooded with posts about a new game, [2048](http://gabrielecirulli.github.io/2048/) which itself is a clone from an existing game concept ([dejavu?](http://en.wikipedia.org/wiki/Flappy_Bird)).
