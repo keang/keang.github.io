@@ -35,23 +35,10 @@ Turns out google spreadsheet do have an API, but the documentation is scarce and
 Now anyone with the spreadsheet link(and with permission) can update it, and the flappy bird will have a different problem to solve to go through the pipes!
 
 See it [flapping live here](http://kakadadroid.github.io/flappy-quiz/) and if you want to, [fork from here!](http://kakadadroid.github.io/flappy-quiz/)</description>
-			<pubDate type="str">2014-03-05</pubDate>
+			<pubDate type="str">2014-03-17</pubDate>
 			<title type="str">Joining the Flappy craze</title>
 			<link type="str">http://yangshun.github.io/luna/#/joining-the-flappy-craze</link>
 			<guid type="str">joining-the-flappy-craze</guid>
-		</item>
-		<item type="dict">
-			<description type="str">In my learning journey as an Android developer, one annoying task is to export a graphic resource multiple times for the handful of screen resolutions that I want to support: mdpi, hdpi, xhdpi and now xxhdpi. This task involves a repeated set of mouse clicks, a change in scaling value, and navigating to the right folders for the right dpi. It can get quite tedious, especially when I often have multiple images for one button, and a gazillion edits before I'm happy with how it looks.
-
-This calls for some scripting for the awesomeness of automation. There's something magical about automatic processes that fascinates me. So I wrote [this Adobe Script in this gist,](https://gist.github.com/kakadadroid/8701058) which has saved myself uncountable mouse clicks and hair pullings.
-
-I remember clearly the joy of running the script and watching the res/drawable/ subfolders be populated with the awesome crisp graphics that I just made. Visually witnessing the .png's popping up is magical, but knowing that you've created that magic is even more... _&quot;magicaller&quot;_.
-
-I'll probably visit this again and add in the dimensions for iOS resources as well when I get my hands on a Mac and have some time to learn iOS too.</description>
-			<pubDate type="str">2014-03-13</pubDate>
-			<title type="str">Export resources for Android with AdobeScript</title>
-			<link type="str">http://yangshun.github.io/luna/#/export-resources-for-android-with-adobescript</link>
-			<guid type="str">export-resources-for-android-with-adobescript</guid>
 		</item>
 		<item type="dict">
 			<description type="str">`render_view` was the missing piece: 
@@ -67,25 +54,23 @@ because rspec by default disables rendering of views to speed up the test. And t
         end
     end
 ```</description>
-			<pubDate type="str">2014-03-04</pubDate>
+			<pubDate type="str">2014-03-17</pubDate>
 			<title type="str">Rspec'ing a rials JSON Api</title>
 			<link type="str">http://yangshun.github.io/luna/#/rspec'ing-a-rials-json-api</link>
 			<guid type="str">rspec'ing-a-rials-json-api</guid>
 		</item>
 		<item type="dict">
-			<description type="str">**Up-update:** I [forked the 2048 game](http://keang.me/2048) and added a looper feature, where anyone can create their stupid bot!
+			<description type="str">In my learning journey as an Android developer, one annoying task is to export a graphic resource multiple times for the handful of screen resolutions that I want to support: mdpi, hdpi, xhdpi and now xxhdpi. This task involves a repeated set of mouse clicks, a change in scaling value, and navigating to the right folders for the right dpi. It can get quite tedious, especially when I often have multiple images for one button, and a gazillion edits before I'm happy with how it looks.
 
-**Update:** I stumbled upon this [super robust AI]( http://ov3y.github.io/2048-AI/) which solves the game! albiet with a bit of lag.
+This calls for some scripting for the awesomeness of automation. There's something magical about automatic processes that fascinates me. So I wrote [this Adobe Script in this gist,](https://gist.github.com/kakadadroid/8701058) which has saved myself uncountable mouse clicks and hair pullings.
 
-In the past 2 days my facebook newsfeed flooded with posts about a new game, [2048](http://gabrielecirulli.github.io/2048/) which itself is a clone from an existing game concept ([dejavu?](http://en.wikipedia.org/wiki/Flappy_Bird)).
+I remember clearly the joy of running the script and watching the res/drawable/ subfolders be populated with the awesome crisp graphics that I just made. Visually witnessing the .png's popping up is magical, but knowing that you've created that magic is even more... _&quot;magicaller&quot;_.
 
-After playing with it for awhile I wanted to write an AI that solves the game, because this naturalI certainly can't solve this game! The first step I took was to simulate keypresses, which I did using a [js script here](https://gist.github.com/kakadadroid/9502722) in firebug console, so I didn't have to modify the game's code at all. At this point I still haven't read a single line of the source code. But all this does is either moving randomly, or moving in a fixed circular pattern.
-
-It's a stupid bot that presses some keys for you, but it scores better than me! Will come back and work on a proper AI soon!</description>
-			<pubDate type="str">2014-03-16</pubDate>
-			<title type="str">2048 bot</title>
-			<link type="str">http://yangshun.github.io/luna/#/2048-bot</link>
-			<guid type="str">2048-bot</guid>
+I'll probably visit this again and add in the dimensions for iOS resources as well when I get my hands on a Mac and have some time to learn iOS too.</description>
+			<pubDate type="str">2014-03-17</pubDate>
+			<title type="str">Export resources for Android with AdobeScript</title>
+			<link type="str">http://yangshun.github.io/luna/#/export-resources-for-android-with-adobescript</link>
+			<guid type="str">export-resources-for-android-with-adobescript</guid>
 		</item>
 		<item type="dict">
 			<description type="str">I've always wanted to build something related to DotA2, because it's such an awesome game and I've been spending at least 5 hours a week clicking away playing DotA. So for the past 3 weeks I've been working on a video aggregator app, [follodota](https://play.google.com/store/apps/details?id=com.follodota&amp;hl=en), which consolidates the English commentated matches uploaded by joinDota and beyondTheSummit.
@@ -103,10 +88,25 @@ But for now, you can search the matches chronologically, by teams and by leagues
 &lt;/ul&gt;
 
 Maybe a script to automatically run the crawling script (which automatically posts matches to through the api). autoception. hah.</description>
-			<pubDate type="str">2014-03-13</pubDate>
+			<pubDate type="str">2014-03-17</pubDate>
 			<title type="str">End to end application: Follodota</title>
 			<link type="str">http://yangshun.github.io/luna/#/end-to-end-application:-follodota</link>
 			<guid type="str">end-to-end-application:-follodota</guid>
+		</item>
+		<item type="dict">
+			<description type="str">**Up-update:** I [forked the 2048 game](http://keang.me/2048) and added a looper feature, where anyone can create their stupid bot!
+
+**Update:** I stumbled upon this [super robust AI]( http://ov3y.github.io/2048-AI/) which solves the game! albiet with a bit of lag.
+
+In the past 2 days my facebook newsfeed flooded with posts about a new game, [2048](http://gabrielecirulli.github.io/2048/) which itself is a clone from an existing game concept ([dejavu?](http://en.wikipedia.org/wiki/Flappy_Bird)).
+
+After playing with it for awhile I wanted to write an AI that solves the game, because this naturalI certainly can't solve this game! The first step I took was to simulate keypresses, which I did using a [js script here](https://gist.github.com/kakadadroid/9502722) in firebug console, so I didn't have to modify the game's code at all. At this point I still haven't read a single line of the source code. But all this does is either moving randomly, or moving in a fixed circular pattern.
+
+It's a stupid bot that presses some keys for you, but it scores better than me! Will come back and work on a proper AI soon!</description>
+			<pubDate type="str">2014-03-17</pubDate>
+			<title type="str">2048 bot</title>
+			<link type="str">http://yangshun.github.io/luna/#/2048-bot</link>
+			<guid type="str">2048-bot</guid>
 		</item>
 		<item type="dict">
 			<description type="str">This is yet another blog that I shall promise myself to keep. This one will talk about the projects and cool and uncool things that I've done.
@@ -116,7 +116,7 @@ I saw a friend's [super cool blog](http://yangshun.im/cs3216/#/) and after a few
 Seems pretty cool! Because of this I had to install a LAMP stack and run on localhost to preview every edit, but it's a one time set up and now I can blog in markdown(for which I need to refer to [the cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)).
 
 Let's get some shit done!</description>
-			<pubDate type="str">2014-03-03</pubDate>
+			<pubDate type="str">2014-03-17</pubDate>
 			<title type="str">blog commit -m &quot;init&quot;</title>
 			<link type="str">http://yangshun.github.io/luna/#/blog-commit--m-&quot;init&quot;</link>
 			<guid type="str">blog-commit--m-&quot;init&quot;</guid>

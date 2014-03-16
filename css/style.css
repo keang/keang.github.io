@@ -5,6 +5,11 @@ body {
   color:#131313;
   background-color: #F7F6EF;
 }
+
+#active{
+    color:#ff5828;
+}
+
 .top-bar{
   background-color: #000;
 }
