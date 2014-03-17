@@ -1,7 +1,7 @@
 [
 	{
 	"title": "2048 bot",
-	"description" : "Stupid bot to loop your moves",
+	"description" : "Stupid bot to loop your moves. [Read here](http://keang.me/blog/#/2048-bot).",
 	"image" : "2048.png",
 	"link" : "http://keang.me/2048"
 	},
