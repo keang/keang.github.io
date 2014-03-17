@@ -7,7 +7,24 @@ body {
 }
 
 #active{
-    color:#ff5828;
+    
+}
+
+.projects > .columns >p {
+  text-align: center;
+}
+.projects > .columns >a>img{
+  padding: 25px;
+}
+.projects > .columns:hover {
+  border:1px;
+  border-radius:20px;
+  background-color: #e5e5e5;
+  text-shadow: 0px 1px white;
+}
+
+.contacts >ul{
+  list-style-type: none;
 }
 
 .top-bar{
