@@ -33,10 +33,6 @@ function LunaCtrl($scope, $http, $timeout) {
     $timeout(function() {
       $scope.$broadcast('allPostsLoaded');
     }, 0);
-
-    $.getScript("js/prism.js", function(){
-        console.log("done highlighting");
-    });
   });
 }
 

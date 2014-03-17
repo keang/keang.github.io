@@ -10,17 +10,22 @@ body {
     
 }
 
-.projects > li >p {
-  text-align: center;
+#project-item>div>p{
+  border-top: 1px solid #ccc;
 }
-.projects > li >a>img{
-  padding: 25px;
-}
-.projects > li:hover {
+#project-item{
+  padding: 10px;
   border:1px;
-  border-radius:20px;
-  background-color: #e5e5e5;
-  text-shadow: 0px 1px white;
+  border-radius:5px;
+  background-color: #f9f9f9;
+  box-shadow: 1px 1px 1px #888888;
+}
+#project-item>a>img{
+  padding-bottom: 10px;
+}
+
+#project-item:hover {
+  box-shadow: 1px 2px 6px #888888;
 }
 
 .contacts >ul{

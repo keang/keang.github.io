@@ -4,7 +4,7 @@
 	html5up.net | @n33co
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
-<html>
+<html ng-app>
 	<head>
 		<title>Keang's</title>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
@@ -13,6 +13,12 @@
     <meta http-equiv="Cache-control" content="public, max-age=259200">
 
     <script src="/js/vendor/modernizr.js"></script>
+    <script src="/js/vendor/showdown.js"></script>
+    <script>
+        var converter = new Showdown.converter();
+    </script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.min.js"></script>
+    <script src="/js/home.js"></script>
 
 		<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,900,300italic" rel="stylesheet" />
         <link href='http://fonts.googleapis.com/css?family=Arvo:400,700' rel='stylesheet' type='text/css'>
@@ -107,58 +113,19 @@
   					  <h2>My Projects:</h2>
             </div>
           </div>
-          <ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-4 projects">
-            <li><a href="http://keang.me/2048"><img src="/img/2048.png"></a> 
-              <p>
-                <a href="http://keang.me/2048">2048 Bot</a>
-                (<a href="http://keang.me/blog/#/2048-bot">some thoughts here</a>)
-              <p/>
-            </li>
-            <li>
-              <a href="https://play.google.com/store/apps/details?id=com.follodota&hl=en">
-                <img src="/img/follodota.png"></a> 
-              <p><a href="https://play.google.com/store/apps/details?id=com.follodota&hl=en">
-                Follodota: DotA professional match aggregator</a></p>
-            </li>
-            <li>
-              <a href="http://keang.me/flappy-quiz/">
-                <img src="/img/flappy.png"></a> 
-              <p>
-                <a href="http://keang.me/flappy-quiz/">Flappy Quiz</a>
-                (<a href="http://keang.me/blog/#/joining-the-flappy-craze">some thoughts here</a>)
-              <p/>
-            </li>
-            <li>
-              <a href="http://brewnus.herokuapp.com/">
-              <img src="/img/brewnus.png"></a> 
-              <p><a href="http://brewnus.herokuapp.com/">
-                Brewnus: Count the alcohol stash on campus!</a></p>
-            </li>
-            <li>
-              <a href="http://www.staime-app.com/">
-                <img src="/img/staime.png"></a> 
-              <p><a href="http://www.staime-app.com/">
-                St'aime: Shopping loyalty in Cambodia</a></p>
-            </li>
-            <li>
-              <a href="https://play.google.com/store/apps/details?id=com.kakada.gimmieunitydemo">
-                <img src="/img/bounceball.png"></a> 
-              <p>
-                Bounceball: Unity powered time killer on <a href="https://apps.facebook.com/unitybounceball">Facebook</a> and <a href="https://play.google.com/store/apps/details?id=com.kakada.gimmieunitydemo">Android</a></p>
-            </li>
-            <li>
-              <a href="https://play.google.com/store/apps/details?id=com.kakadadroid.englishrepeat">
-                <img src="/img/englishrepeat.png"></a> 
-              <p><a href="https://play.google.com/store/apps/details?id=com.kakadadroid.englishrepeat">
-                English Repeat: Android app to teach my parents English</a></p>
-            </li>
-            <li>
-              <a href="https://github.com/cocross/cocross_android">
-                <img src="/img/cocross.png"></a> 
-              <p><a href="https://github.com/cocross/cocross_android">
-                Cocross: a crossfit companion app</a></p>
-            </li>
-          </ul>
+
+          <div ng-controller="ProjectsCtrl">
+            <ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-4 projects">
+              <li ng-repeat="p in projects">
+                <div id="project-item">
+                  <a href="{{p.link}}"><img src="/img/{{p.image}}">
+                  {{p.title}}</a>
+                  <div ng-bind-html-unsafe="p.description"></div>
+                </div>
+              </li>
+            </ul>
+          </div>
+            
       </div>
     	<div class="row">
     		<div class="small-12 columns contacts">
