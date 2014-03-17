@@ -10,13 +10,13 @@ body {
     
 }
 
-.projects > .columns >p {
+.projects > li >p {
   text-align: center;
 }
-.projects > .columns >a>img{
+.projects > li >a>img{
   padding: 25px;
 }
-.projects > .columns:hover {
+.projects > li:hover {
   border:1px;
   border-radius:20px;
   background-color: #e5e5e5;
