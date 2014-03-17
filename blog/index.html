@@ -33,7 +33,7 @@
         <!--[if lt IE 7]>
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
-        <nav class="top-bar">
+        <nav class="top-bar" data-topbar>
           <ul class="title-area">
             <!-- Title Area -->
             <li class="name">
@@ -113,13 +113,23 @@
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
         <script src="/js/plugins.js"></script>
-        <script src="/js/main.js"></script>
+        <script src="/js/main.js"></script><script src="/js/vendor/jquery.js"></script>
+        <script src="/js/vendor/fastclick.js"></script>
+        <script src="/js/foundation.min.js"></script>
+        <script src="/js/foundation.topbar.js"></script>
         <script>
-
-            $(document).foundation();
-            $(function() {
-                
-            });
+          $(document).foundation({
+            topbar : {
+              sticky_class : 'sticky',
+              custom_back_text: true, // Set this to false and it will pull the top level link name as the back text
+              back_text: 'Back', // Define what you want your custom back text to be if custom_back_text: true
+              is_hover: true,
+              mobile_show_parent_link: false, // will copy parent links into dropdowns for mobile navigation
+              scrolltop : true // jump to top when sticky nav menu toggle is clicked
+            }
+          });
+          $(function() {
+          });
         </script>
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
