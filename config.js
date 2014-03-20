@@ -9,5 +9,5 @@ CONFIG.NUM_POSTS_PER_PAGE = 4;
 CONFIG.ENABLE_ANIMATIONS = true;
 
 CONFIG.USE_DISQUS = true;
-CONFIG.DISQUS_SHORT_NAME = 'keang';
-CONFIG.SITE_DOMAIN = 'http://kakadadroid.github.io/';
+CONFIG.DISQUS_SHORT_NAME = 'kakaka';
+CONFIG.SITE_DOMAIN = 'keang.me/';

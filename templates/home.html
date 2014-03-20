@@ -1,0 +1,55 @@
+<div class="row">
+	<div class="small-12 large-8 columns">
+  	<h2>Hello</h2>
+  	<p>It's nice to have you reading this!</p> 
+  	<p>I'm a new programmer who's still naive and optimistic, and eager to get my hands dirty with codes. </p>
+  	<p>Please find me through the section below and I'd love to have a chat!</p>
+  </div>
+	<div class="small-6 large-4 columns">
+		<img src="/img/keang.png" id="display-pic">
+	</div>
+</div>
+
+<div class="row">
+  <div class="small-12 columns">
+    <h2>Curently working on:</h2>
+  </div>
+</div>
+<div class="row">
+  <div class="small-12 columns">
+    <ul>
+      <li ng-repeat="d in currentTask">
+        {{d}}
+      </li>
+  </div>
+</div>
+
+<div class="row">
+	<div class="small-12 columns">
+	  <h2>My Projects:</h2>
+  </div>
+</div>
+<div><!-- ng-controller="ProjectsCtrl"-->
+  <ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-4 projects">
+    <li ng-repeat="p in projects">
+      <div id="project-item">
+        <a href="{{p.link}}"><img src="/img/{{p.image}}">
+        {{p.title}}</a>
+        <div ng-bind-html-unsafe="p.description"></div>
+      </div>
+    </li>
+  </ul>
+</div>
+      
+</div>
+<div class="row">
+	<div class="small-12 columns contacts">
+		<h2>Find me:</h2>
+		<ul>
+			<li><a href="mailto:skeang@gmail.com">skeang@gmail.com</a></li>
+			<li><a href="https://github.com/kakadadroid">Github</a></li>
+			<li><a href="http://skeang.tumblr.com/">My doodling</a></li>
+			<li><a href="http://www.linkedin.com/in/skeang">Mandatory Linkedin profile</a></li>
+		</ul>
+  </div>
+</div>

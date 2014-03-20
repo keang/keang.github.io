@@ -3,14 +3,15 @@
 angular.module('luna', []).
   config(['$routeProvider', function($routeProvider) {
   $routeProvider.
-    when('/', {templateUrl: 'templates/landing.html', controller: LandingCtrl}).
+    when('/blog', {templateUrl: 'templates/landing.html', controller: LandingCtrl}).
+    when('/', {templateUrl: 'templates/home.html', controller: HomeCtrl}).
     when('/posts', {templateUrl: 'templates/all-posts.html', controller: AllPostsCtrl}).
-    when('/:post_id', {templateUrl: 'templates/single-post.html', controller: SinglePostCtrl}).
+    when('/blog/:post_id', {templateUrl: 'templates/single-post.html', controller: SinglePostCtrl}).
     when('/page/:page', {templateUrl: 'templates/landing.html', controller: LandingCtrl}).
     otherwise({redirectTo: '/'});
 }]);
 
-function LunaCtrl($scope, $http, $timeout) {
+function LunaCtrl($scope, $http, $timeout, $location) {
   console.log('luna ctrl init');
   $scope.disable_animations = !CONFIG.ENABLE_ANIMATIONS;
   $scope.all_posts_loaded = false;
@@ -34,10 +35,24 @@ function LunaCtrl($scope, $http, $timeout) {
       $scope.$broadcast('allPostsLoaded');
     }, 0);
   });
+
+  //nav highlighting:
+  $scope.getClass = function(path) {
+    var cur_path = $location.path().substr(0, path.length);
+    if (cur_path == path) {
+        if($location.path().substr(0).length > 1 && path.length == 1 )
+            return "";
+        else
+            return "active";
+    } else {
+        return "";
+    }
+}
 }
 
 function LandingCtrl($scope, $routeParams) {
   console.log('landing ctrl init');
+
   if ($scope.$parent.all_posts_loaded) {
     getPagePosts();
   } else {
@@ -68,14 +83,19 @@ function SinglePostCtrl($scope, $routeParams) {
   $scope.newer_post_id = undefined;
   $scope.older_post_id = undefined;
 
-  if ($scope.$parent.all_posts_loaded) {
+  if ($scope.$parent.all_posts_loaded) {    
+    console.log("if");
     loadSinglePost();
   } else {
+    console.log("else");
     $scope.$on('allPostsLoaded', loadSinglePost);
   }
 
   function loadSinglePost() {
     $scope.current_post = findPostFromPostId($routeParams.post_id);
+
+
+    console.log("loading single post");
     function findPostFromPostId(post_id) {
       for (var i = 0; i < $scope.$parent.posts.length; i++) {
         if ($scope.$parent.posts[i].post_id === post_id) {          
@@ -111,4 +131,16 @@ function SinglePostCtrl($scope, $routeParams) {
   if ($scope.$parent.blog.use_disqus) {
     loadDisqus();
   }
+}
+
+function HomeCtrl($scope, $http){
+  $http.get('/projects.json').success(function(data) {
+    $scope.projects = data
+    for (var i = 0; i < $scope.projects.length; i++) {
+      $scope.projects[i].description = converter.makeHtml($scope.projects[i].description);
+      console.log('description: ');
+      console.log($scope.projects[i].description);
+    }
+    console.log('all projects loaded');
+  });
 }
