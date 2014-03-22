@@ -29,7 +29,7 @@ Writing
 
 4. To compile the site for uploading, run:
     
-        $ python3 build.py
+        $ python build.py
   
     This command will compile the markdown files in the `./posts` directory into a JSON file called `posts.json` in the `./content` directory.
 
