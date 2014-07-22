@@ -144,5 +144,5 @@ function HomeCtrl($scope, $http){
     console.log('all projects loaded');
   });
 
-  $scope.currentTask = ["Finish thesis and graduate.", "Part-time at Gimmieworld"];
+  $scope.currentTask = ["Find a routine.", "Learn to cook.", "Find peace with self"];
 }
