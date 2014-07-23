@@ -4,7 +4,8 @@ angular.module('luna', []).
   config(['$routeProvider', function($routeProvider) {
   $routeProvider.
     when('/blog', {templateUrl: 'templates/landing.html', controller: LandingCtrl}).
-    when('/', {templateUrl: 'templates/home.html', controller: HomeCtrl}).
+    when('/', {templateUrl: 'templates/landing.html', controller: LandingCtrl}).
+    when('/home', {templateUrl: 'templates/home.html', controller: HomeCtrl}).
     when('/posts', {templateUrl: 'templates/all-posts.html', controller: AllPostsCtrl}).
     when('/blog/:post_id', {templateUrl: 'templates/single-post.html', controller: SinglePostCtrl}).
     when('/page/:page', {templateUrl: 'templates/landing.html', controller: LandingCtrl}).
