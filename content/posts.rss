@@ -78,7 +78,7 @@ Model.where(x: 1, y: 2).first_or_create
 			<guid type="str">subtle-bug-coming-from-rails'-first_or_create</guid>
 		</item>
 		<item type="dict">
-			<description type="str">**tl;dr**: my flappy clone [here](http://kakadadroid.github.io/flappy-quiz/).
+			<description type="str">**tl;dr**: my flappy clone [here](http://keang.github.io/flappy-quiz/).
 
 Being swept by the recent craze for flappy bird, I wanted to pass on this little birdy frustration and at the same time make something fun. I love the fact that flappy bird is so frustratingly simple that to play you have to focus on some thing else other than the bird to do well. Some people suggesting looking at the skies behind. Some at the moving pipes. Others go further to add a [typing training in there](http://www.mrspeaker.net/dev/game/flappy/). 
 
@@ -107,8 +107,8 @@ Turns out google spreadsheet do have an API, but the documentation is scarce and
 
 Now anyone with the spreadsheet link(and with permission) can update it, and the flappy bird will have a different problem to solve to go through the pipes!
 
-See it [flapping live here](http://kakadadroid.github.io/flappy-quiz/) and if you want to, [fork from here!](http://kakadadroid.github.io/flappy-quiz/)</description>
-			<pubDate type="str">2015-01-09</pubDate>
+See it [flapping live here](http://keang.github.io/flappy-quiz/) and if you want to, [fork from here!](http://keang.github.io/flappy-quiz/)</description>
+			<pubDate type="str">2015-01-19</pubDate>
 			<title type="str">Joining the Flappy craze</title>
 			<link type="str">http://yangshun.github.io/luna/#/joining-the-flappy-craze</link>
 			<guid type="str">joining-the-flappy-craze</guid>
@@ -136,10 +136,10 @@ I'll never be sure that it's heroku's environment messing up the encoding specia
 
 In the past 2 days my facebook newsfeed flooded with posts about a new game, [2048](http://gabrielecirulli.github.io/2048/) which itself is a clone from an existing game concept ([dejavu?](http://en.wikipedia.org/wiki/Flappy_Bird)).
 
-After playing with it for awhile I wanted to write an AI that solves the game, because this naturalI certainly can't solve this game! The first step I took was to simulate keypresses, which I did using a [js script here](https://gist.github.com/kakadadroid/9502722) in firebug console, so I didn't have to modify the game's code at all. At this point I still haven't read a single line of the source code. But all this does is either moving randomly, or moving in a fixed circular pattern.
+After playing with it for awhile I wanted to write an AI that solves the game, because this naturalI certainly can't solve this game! The first step I took was to simulate keypresses, which I did using a [js script here](https://gist.github.com/keang/9502722) in firebug console, so I didn't have to modify the game's code at all. At this point I still haven't read a single line of the source code. But all this does is either moving randomly, or moving in a fixed circular pattern.
 
 It's a stupid bot that presses some keys for you, but it scores better than me! Will come back and work on a proper AI soon!</description>
-			<pubDate type="str">2015-01-09</pubDate>
+			<pubDate type="str">2015-01-19</pubDate>
 			<title type="str">2048 bot</title>
 			<link type="str">http://yangshun.github.io/luna/#/2048-bot</link>
 			<guid type="str">2048-bot</guid>
@@ -147,12 +147,12 @@ It's a stupid bot that presses some keys for you, but it scores better than me! 
 		<item type="dict">
 			<description type="str">In my learning journey as an Android developer, one annoying task is to export a graphic resource multiple times for the handful of screen resolutions that I want to support: mdpi, hdpi, xhdpi and now xxhdpi. This task involves a repeated set of mouse clicks, a change in scaling value, and navigating to the right folders for the right dpi. It can get quite tedious, especially when I often have multiple images for one button, and a gazillion edits before I'm happy with how it looks.
 
-This calls for some scripting for the awesomeness of automation. There's something magical about automatic processes that fascinates me. So I wrote [this Adobe Script in this gist,](https://gist.github.com/kakadadroid/8701058) which has saved myself uncountable mouse clicks and hair pullings.
+This calls for some scripting for the awesomeness of automation. There's something magical about automatic processes that fascinates me. So I wrote [this Adobe Script in this gist,](https://gist.github.com/keang/8701058) which has saved myself uncountable mouse clicks and hair pullings.
 
 I remember clearly the joy of running the script and watching the res/drawable/ subfolders be populated with the awesome crisp graphics that I just made. Visually witnessing the .png's popping up is magical, but knowing that you've created that magic is even more... _&quot;magicaller&quot;_.
 
 I'll probably visit this again and add in the dimensions for iOS resources as well when I get my hands on a Mac and have some time to learn iOS too.</description>
-			<pubDate type="str">2015-01-09</pubDate>
+			<pubDate type="str">2015-01-19</pubDate>
 			<title type="str">Export resources for Android with AdobeScript</title>
 			<link type="str">http://yangshun.github.io/luna/#/export-resources-for-android-with-adobescript</link>
 			<guid type="str">export-resources-for-android-with-adobescript</guid>
