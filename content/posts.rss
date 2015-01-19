@@ -5,6 +5,19 @@
 		<description>This is a demonstration of Luna Blogging Engine</description>
 		<link>http://yangshun.github.io/luna/#/</link>
 		<item type="dict">
+			<description type="str">This is yet another blog that I shall promise myself to keep. This one will talk about the projects and cool and uncool things that I've done.
+
+I saw a friend's [super cool blog](http://yangshun.im/cs3216/#/) and after a few minutes of picking around I found his little python-based page generators for blogs, [luna](https://github.com/yangshun/luna). I just lost all the excuses to delay this. Mainly because I just wanted to try out this 'blogging engin'.
+
+Seems pretty cool! Because of this I had to install a LAMP stack and run on localhost to preview every edit, but it's a one time set up and now I can blog in markdown(for which I need to refer to [the cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)).
+
+Let's get some shit done!</description>
+			<pubDate type="str">2014-03-01</pubDate>
+			<title type="str">blog commit -m &quot;init&quot;</title>
+			<link type="str">http://yangshun.github.io/luna/#/blog-commit--m-&quot;init&quot;</link>
+			<guid type="str">blog-commit--m-&quot;init&quot;</guid>
+		</item>
+		<item type="dict">
 			<description type="str">**tl;dr**: my flappy clone [here](http://keang.github.io/flappy-quiz/).
 
 Being swept by the recent craze for flappy bird, I wanted to pass on this little birdy frustration and at the same time make something fun. I love the fact that flappy bird is so frustratingly simple that to play you have to focus on some thing else other than the bird to do well. Some people suggesting looking at the skies behind. Some at the moving pipes. Others go further to add a [typing training in there](http://www.mrspeaker.net/dev/game/flappy/).
@@ -156,19 +169,6 @@ Model.where(x: 1, y: 2).first_or_create
 			<title type="str">Subtle bug coming from Rails' first_or_create</title>
 			<link type="str">http://yangshun.github.io/luna/#/subtle-bug-coming-from-rails'-first_or_create</link>
 			<guid type="str">subtle-bug-coming-from-rails'-first_or_create</guid>
-		</item>
-		<item type="dict">
-			<description type="str">This is yet another blog that I shall promise myself to keep. This one will talk about the projects and cool and uncool things that I've done.
-
-I saw a friend's [super cool blog](http://yangshun.im/cs3216/#/) and after a few minutes of picking around I found his little python-based page generators for blogs, [luna](https://github.com/yangshun/luna). I just lost all the excuses to delay this. Mainly because I just wanted to try out this 'blogging engin'.
-
-Seems pretty cool! Because of this I had to install a LAMP stack and run on localhost to preview every edit, but it's a one time set up and now I can blog in markdown(for which I need to refer to [the cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)).
-
-Let's get some shit done!</description>
-			<pubDate type="str">2015-01-19</pubDate>
-			<title type="str">blog commit -m &quot;init&quot;</title>
-			<link type="str">http://yangshun.github.io/luna/#/blog-commit--m-&quot;init&quot;</link>
-			<guid type="str">blog-commit--m-&quot;init&quot;</guid>
 		</item>
 	</channel>
 </rss>
