@@ -1,5 +1,6 @@
 End to end application: Follodota
 ==
+Mar 13 2014 02:30PM
 I've always wanted to build something related to DotA2, because it's such an awesome game and I've been spending at least 5 hours a week clicking away playing DotA. So for the past 3 weeks I've been working on a video aggregator app, [follodota](https://play.google.com/store/apps/details?id=com.follodota&hl=en), which consolidates the English commentated matches uploaded by joinDota and beyondTheSummit.
 
 This is an end-to-end application that I built while learning on the job: a python script which crawls the dotacinema.com website for new content, a rails app as server hosted on Heroku to store and serve the match information with json api, and of course an android native app to play those videos.

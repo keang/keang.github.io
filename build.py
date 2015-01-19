@@ -2,6 +2,8 @@ import os
 import json
 import dicttoxml
 import datetime
+import time
+from dateutil import parser
 from xml.dom.minidom import parseString
 
 SITE_LINK = "http://yangshun.github.io/luna/#/"
@@ -71,11 +73,12 @@ def build_posts():
 	    with open(current_file_path) as f:
 	        post_title = f.readline()
 	        throw_away = f.readline()   # second line of post is markdown heading syntax
+	        post_date = f.readline()  #third line is date #'Jan 1 2015  1:33PM'
+	        post_timestamp = time.mktime(parser.parse(post_date).timetuple())
 	        file_content = f.read()
-
 	    post = {
 	            'title': post_title.replace('\n', ''),
-	            'timestamp': int(os.path.getctime(current_file_path)),
+	            'timestamp': post_timestamp,
 	            'modified': int(os.path.getmtime(current_file_path)),
 	            'content': file_content.strip(),
 	            'filename': file_path,

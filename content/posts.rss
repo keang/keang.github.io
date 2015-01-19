@@ -5,86 +5,13 @@
 		<description>This is a demonstration of Luna Blogging Engine</description>
 		<link>http://yangshun.github.io/luna/#/</link>
 		<item type="dict">
-			<description type="str">I've always wanted to build something related to DotA2, because it's such an awesome game and I've been spending at least 5 hours a week clicking away playing DotA. So for the past 3 weeks I've been working on a video aggregator app, [follodota](https://play.google.com/store/apps/details?id=com.follodota&amp;hl=en), which consolidates the English commentated matches uploaded by joinDota and beyondTheSummit.
-
-This is an end-to-end application that I built while learning on the job: a python script which crawls the dotacinema.com website for new content, a rails app as server hosted on Heroku to store and serve the match information with json api, and of course an android native app to play those videos.
-
-Currently it is still in its infancy, and I still have to run the python script every now and then. The script only gets 15 entries because the [beautiful soup](http://www.crummy.com/software/BeautifulSoup/bs4/doc/) + [request](http://docs.python-requests.org/en/latest/) combo in python could not emulate a scrolling down event, which is needed to load more videos on [dotacinema.com](www.dotacinema.com/vod). Much more work to do :P
-
-But for now, you can search the matches chronologically, by teams and by leagues (and easily by casters, but that's not implemented yet). My hope would be to get this thing ready for TI4!([last year's TI here](http://www.dota2.com/international/home/overview/))
-
-&lt;ul class=&quot;todo&quot;&gt;Todo:
-&lt;li class=&quot;todoitem&quot;&gt;add in some Gimmie awesomeness in gamification&lt;/li&gt;
-&lt;li class=&quot;todoitem&quot;&gt;an iOS client would be great too &lt;/li&gt;
-&lt;li class=&quot;todoitem&quot;&gt;and also to crawl for more matches. &lt;/li&gt;
-&lt;/ul&gt;
-
-Maybe a script to automatically run the crawling script (which automatically posts matches to through the api). autoception. hah.</description>
-			<pubDate type="str">2015-01-09</pubDate>
-			<title type="str">End to end application: Follodota</title>
-			<link type="str">http://yangshun.github.io/luna/#/end-to-end-application:-follodota</link>
-			<guid type="str">end-to-end-application:-follodota</guid>
-		</item>
-		<item type="dict">
-			<description type="str">A few different projects called for the use of regex and until now, I still let go of a smile in amazement as I construct each regex query.
-
-A online tool that is super useful is [Regex 101](http://regex101.com/), where different flavour of regex is accessible at a toggle. There is also an **Explanation** box that breaks down the qurey that I just constructed by trial and error.
-
-While it's extremely useful and fulfilling, I still could not find enough reason and opportunity to learn regex proper. Just like many other things.
-
-**A cool app idea:**  Take a test string, and the desired matching part, and outputs the regex expression.</description>
-			<pubDate type="str">2015-01-09</pubDate>
-			<title type="str">RegEx is fascinating</title>
-			<link type="str">http://yangshun.github.io/luna/#/regex-is-fascinating</link>
-			<guid type="str">regex-is-fascinating</guid>
-		</item>
-		<item type="dict">
-			<description type="str">`render_view` was the missing piece: 
-because rspec by default disables rendering of views to speed up the test. And that's how I was stuck for days trying to find bugs in the super short json.
-
-```ruby
-    describe Api::V1::TeamsController do
-		render_views
-		it &quot;returns a json array of teams&quot; do
-		...
-        json = JSON.parse(response.body)
-        expect(json['teams']).not_to be_nil
-        end
-    end
-```</description>
-			<pubDate type="str">2015-01-09</pubDate>
-			<title type="str">Rspec'ing a rials JSON Api</title>
-			<link type="str">http://yangshun.github.io/luna/#/rspec'ing-a-rials-json-api</link>
-			<guid type="str">rspec'ing-a-rials-json-api</guid>
-		</item>
-		<item type="dict">
-			<description type="str">One very useful method provided by Rails is [`first_or_create`](http://apidock.com/rails/v4.1.8/ActiveRecord/Relation/first_or_create)
-
-But there's a substantial probability that one might use it like this:
-```
-Model.first_or_create(x: 1, y: 2)
-```
-&lt;br&gt;
-At least I did at first. It caused a bug in that nothing ever gets created with `{x=1, y=2}`. This is because Model.first already returns an object - where(`id`=1) - so the create part doesn't get called.
-
-The desired behaviour would be achieved by:
-
-```
-Model.where(x: 1, y: 2).first_or_create
-```</description>
-			<pubDate type="str">2015-01-09</pubDate>
-			<title type="str">Subtle bug coming from Rails' first_or_create</title>
-			<link type="str">http://yangshun.github.io/luna/#/subtle-bug-coming-from-rails'-first_or_create</link>
-			<guid type="str">subtle-bug-coming-from-rails'-first_or_create</guid>
-		</item>
-		<item type="dict">
 			<description type="str">**tl;dr**: my flappy clone [here](http://keang.github.io/flappy-quiz/).
 
-Being swept by the recent craze for flappy bird, I wanted to pass on this little birdy frustration and at the same time make something fun. I love the fact that flappy bird is so frustratingly simple that to play you have to focus on some thing else other than the bird to do well. Some people suggesting looking at the skies behind. Some at the moving pipes. Others go further to add a [typing training in there](http://www.mrspeaker.net/dev/game/flappy/). 
+Being swept by the recent craze for flappy bird, I wanted to pass on this little birdy frustration and at the same time make something fun. I love the fact that flappy bird is so frustratingly simple that to play you have to focus on some thing else other than the bird to do well. Some people suggesting looking at the skies behind. Some at the moving pipes. Others go further to add a [typing training in there](http://www.mrspeaker.net/dev/game/flappy/).
 
-One interesting version I found was this awesome [flappy maths saga](tikwid/flappy-math-saga) which puts your multiplication power to the test. It's beautiful because the attention split needed there really proves as a good brain teaser. I thought this could extend to other fields as well, so I wanted to make a frustrating quiz engin for multiple choice questions. But the pipe is only so long, so only true/false type questions and 2-choices were possible. 
+One interesting version I found was this awesome [flappy maths saga](tikwid/flappy-math-saga) which puts your multiplication power to the test. It's beautiful because the attention split needed there really proves as a good brain teaser. I thought this could extend to other fields as well, so I wanted to make a frustrating quiz engin for multiple choice questions. But the pipe is only so long, so only true/false type questions and 2-choices were possible.
 
-I told this to my girlfriend and she said her english class full of 13yo's will love it. We used google spreadsheet to compile a small quiz, which I was planning to hardcode into the modified html flappy. But while sharing the google spreadsheet I remembered that it could be made a public link, and so there should be a way to read the content of the public spreadsheet directly from the html.  
+I told this to my girlfriend and she said her english class full of 13yo's will love it. We used google spreadsheet to compile a small quiz, which I was planning to hardcode into the modified html flappy. But while sharing the google spreadsheet I remembered that it could be made a public link, and so there should be a way to read the content of the public spreadsheet directly from the html.
 
 &gt;&quot;The (sec2) kids went bananas!&quot;
 
@@ -108,26 +35,63 @@ Turns out google spreadsheet do have an API, but the documentation is scarce and
 Now anyone with the spreadsheet link(and with permission) can update it, and the flappy bird will have a different problem to solve to go through the pipes!
 
 See it [flapping live here](http://keang.github.io/flappy-quiz/) and if you want to, [fork from here!](http://keang.github.io/flappy-quiz/)</description>
-			<pubDate type="str">2015-01-19</pubDate>
+			<pubDate type="str">2014-03-02</pubDate>
 			<title type="str">Joining the Flappy craze</title>
 			<link type="str">http://yangshun.github.io/luna/#/joining-the-flappy-craze</link>
 			<guid type="str">joining-the-flappy-craze</guid>
 		</item>
 		<item type="dict">
-			<description type="str">When playing around with file uploads using the gem paperclip from a heroku rails app ([I did as described here](https://devcenter.heroku.com/articles/paperclip-s3)), I got it working from my local environment, successfully uploading images to my bucket. But upon pushing to heroku production, the key and secret seems to have issues and I was given this:
+			<description type="str">`render_view` was the missing piece:
+because rspec by default disables rendering of views to speed up the test. And that's how I was stuck for days trying to find bugs in the super short json.
 
-````
-AWS::S3::Errors::SignatureDoesNotMatch (The request signature we calculated does not match the signature you provided. 
-````
-I tripple checked that there were no difference in the config variables and inspected the configured AWS credentials on production and all seemed to tally up. 
+```ruby
+    describe Api::V1::TeamsController do
+		render_views
+		it &quot;returns a json array of teams&quot; do
+		...
+        json = JSON.parse(response.body)
+        expect(json['teams']).not_to be_nil
+        end
+    end
+```</description>
+			<pubDate type="str">2014-03-03</pubDate>
+			<title type="str">Rspec'ing a rials JSON Api</title>
+			<link type="str">http://yangshun.github.io/luna/#/rspec'ing-a-rials-json-api</link>
+			<guid type="str">rspec'ing-a-rials-json-api</guid>
+		</item>
+		<item type="dict">
+			<description type="str">In my learning journey as an Android developer, one annoying task is to export a graphic resource multiple times for the handful of screen resolutions that I want to support: mdpi, hdpi, xhdpi and now xxhdpi. This task involves a repeated set of mouse clicks, a change in scaling value, and navigating to the right folders for the right dpi. It can get quite tedious, especially when I often have multiple images for one button, and a gazillion edits before I'm happy with how it looks.
 
-Then I found [this post that gave me some direction](http://stackoverflow.com/questions/2777078/amazon-mws-request-signature-calculated-does-not-match-the-signature-provided). Many solved by the trailing slashs and encoding of &quot;+&quot; and stuff in the credentials. I went ahead to the AWS console and kept refreshing till I get an all alpha-numeric key and secret pair. I got it after about 5 rounds of create-and-delete cycles. Magically the upload succeeds at first try. 
+This calls for some scripting for the awesomeness of automation. There's something magical about automatic processes that fascinates me. So I wrote [this Adobe Script in this gist,](https://gist.github.com/keang/8701058) which has saved myself uncountable mouse clicks and hair pullings.
 
-I'll never be sure that it's heroku's environment messing up the encoding special characters, but now it works and I'll keep using the alpha-numeric-only key.</description>
-			<pubDate type="str">2015-01-09</pubDate>
-			<title type="str">AWS Key and Secret with special characters</title>
-			<link type="str">http://yangshun.github.io/luna/#/aws-key-and-secret-with-special-characters</link>
-			<guid type="str">aws-key-and-secret-with-special-characters</guid>
+I remember clearly the joy of running the script and watching the res/drawable/ subfolders be populated with the awesome crisp graphics that I just made. Visually witnessing the .png's popping up is magical, but knowing that you've created that magic is even more... _&quot;magicaller&quot;_.
+
+I'll probably visit this again and add in the dimensions for iOS resources as well when I get my hands on a Mac and have some time to learn iOS too.</description>
+			<pubDate type="str">2014-03-06</pubDate>
+			<title type="str">Export resources for Android with AdobeScript</title>
+			<link type="str">http://yangshun.github.io/luna/#/export-resources-for-android-with-adobescript</link>
+			<guid type="str">export-resources-for-android-with-adobescript</guid>
+		</item>
+		<item type="dict">
+			<description type="str">I've always wanted to build something related to DotA2, because it's such an awesome game and I've been spending at least 5 hours a week clicking away playing DotA. So for the past 3 weeks I've been working on a video aggregator app, [follodota](https://play.google.com/store/apps/details?id=com.follodota&amp;hl=en), which consolidates the English commentated matches uploaded by joinDota and beyondTheSummit.
+
+This is an end-to-end application that I built while learning on the job: a python script which crawls the dotacinema.com website for new content, a rails app as server hosted on Heroku to store and serve the match information with json api, and of course an android native app to play those videos.
+
+Currently it is still in its infancy, and I still have to run the python script every now and then. The script only gets 15 entries because the [beautiful soup](http://www.crummy.com/software/BeautifulSoup/bs4/doc/) + [request](http://docs.python-requests.org/en/latest/) combo in python could not emulate a scrolling down event, which is needed to load more videos on [dotacinema.com](www.dotacinema.com/vod). Much more work to do :P
+
+But for now, you can search the matches chronologically, by teams and by leagues (and easily by casters, but that's not implemented yet). My hope would be to get this thing ready for TI4!([last year's TI here](http://www.dota2.com/international/home/overview/))
+
+&lt;ul class=&quot;todo&quot;&gt;Todo:
+&lt;li class=&quot;todoitem&quot;&gt;add in some Gimmie awesomeness in gamification&lt;/li&gt;
+&lt;li class=&quot;todoitem&quot;&gt;an iOS client would be great too &lt;/li&gt;
+&lt;li class=&quot;todoitem&quot;&gt;and also to crawl for more matches. &lt;/li&gt;
+&lt;/ul&gt;
+
+Maybe a script to automatically run the crawling script (which automatically posts matches to through the api). autoception. hah.</description>
+			<pubDate type="str">2014-03-13</pubDate>
+			<title type="str">End to end application: Follodota</title>
+			<link type="str">http://yangshun.github.io/luna/#/end-to-end-application:-follodota</link>
+			<guid type="str">end-to-end-application:-follodota</guid>
 		</item>
 		<item type="dict">
 			<description type="str">**Up-update:** I [forked the 2048 game](http://keang.me/2048) and added a looper feature, where anyone can create their stupid bot!
@@ -139,23 +103,59 @@ In the past 2 days my facebook newsfeed flooded with posts about a new game, [20
 After playing with it for awhile I wanted to write an AI that solves the game, because this naturalI certainly can't solve this game! The first step I took was to simulate keypresses, which I did using a [js script here](https://gist.github.com/keang/9502722) in firebug console, so I didn't have to modify the game's code at all. At this point I still haven't read a single line of the source code. But all this does is either moving randomly, or moving in a fixed circular pattern.
 
 It's a stupid bot that presses some keys for you, but it scores better than me! Will come back and work on a proper AI soon!</description>
-			<pubDate type="str">2015-01-19</pubDate>
+			<pubDate type="str">2014-03-16</pubDate>
 			<title type="str">2048 bot</title>
 			<link type="str">http://yangshun.github.io/luna/#/2048-bot</link>
 			<guid type="str">2048-bot</guid>
 		</item>
 		<item type="dict">
-			<description type="str">In my learning journey as an Android developer, one annoying task is to export a graphic resource multiple times for the handful of screen resolutions that I want to support: mdpi, hdpi, xhdpi and now xxhdpi. This task involves a repeated set of mouse clicks, a change in scaling value, and navigating to the right folders for the right dpi. It can get quite tedious, especially when I often have multiple images for one button, and a gazillion edits before I'm happy with how it looks.
+			<description type="str">A few different projects called for the use of regex and until now, I still let go of a smile in amazement as I construct each regex query.
 
-This calls for some scripting for the awesomeness of automation. There's something magical about automatic processes that fascinates me. So I wrote [this Adobe Script in this gist,](https://gist.github.com/keang/8701058) which has saved myself uncountable mouse clicks and hair pullings.
+A online tool that is super useful is [Regex 101](http://regex101.com/), where different flavour of regex is accessible at a toggle. There is also an **Explanation** box that breaks down the qurey that I just constructed by trial and error.
 
-I remember clearly the joy of running the script and watching the res/drawable/ subfolders be populated with the awesome crisp graphics that I just made. Visually witnessing the .png's popping up is magical, but knowing that you've created that magic is even more... _&quot;magicaller&quot;_.
+While it's extremely useful and fulfilling, I still could not find enough reason and opportunity to learn regex proper. Just like many other things.
 
-I'll probably visit this again and add in the dimensions for iOS resources as well when I get my hands on a Mac and have some time to learn iOS too.</description>
-			<pubDate type="str">2015-01-19</pubDate>
-			<title type="str">Export resources for Android with AdobeScript</title>
-			<link type="str">http://yangshun.github.io/luna/#/export-resources-for-android-with-adobescript</link>
-			<guid type="str">export-resources-for-android-with-adobescript</guid>
+**A cool app idea:**  Take a test string, and the desired matching part, and outputs the regex expression.</description>
+			<pubDate type="str">2014-07-24</pubDate>
+			<title type="str">RegEx is fascinating</title>
+			<link type="str">http://yangshun.github.io/luna/#/regex-is-fascinating</link>
+			<guid type="str">regex-is-fascinating</guid>
+		</item>
+		<item type="dict">
+			<description type="str">When playing around with file uploads using the gem paperclip from a heroku rails app ([I did as described here](https://devcenter.heroku.com/articles/paperclip-s3)), I got it working from my local environment, successfully uploading images to my bucket. But upon pushing to heroku production, the key and secret seems to have issues and I was given this:
+
+````
+AWS::S3::Errors::SignatureDoesNotMatch (The request signature we calculated does not match the signature you provided.
+````
+I tripple checked that there were no difference in the config variables and inspected the configured AWS credentials on production and all seemed to tally up.
+
+Then I found [this post that gave me some direction](http://stackoverflow.com/questions/2777078/amazon-mws-request-signature-calculated-does-not-match-the-signature-provided). Many solved by the trailing slashs and encoding of &quot;+&quot; and stuff in the credentials. I went ahead to the AWS console and kept refreshing till I get an all alpha-numeric key and secret pair. I got it after about 5 rounds of create-and-delete cycles. Magically the upload succeeds at first try.
+
+I'll never be sure that it's heroku's environment messing up the encoding special characters, but now it works and I'll keep using the alpha-numeric-only key.</description>
+			<pubDate type="str">2015-01-03</pubDate>
+			<title type="str">AWS Key and Secret with special characters</title>
+			<link type="str">http://yangshun.github.io/luna/#/aws-key-and-secret-with-special-characters</link>
+			<guid type="str">aws-key-and-secret-with-special-characters</guid>
+		</item>
+		<item type="dict">
+			<description type="str">One very useful method provided by Rails is [`first_or_create`](http://apidock.com/rails/v4.1.8/ActiveRecord/Relation/first_or_create)
+
+But there's a substantial probability that one might use it like this:
+```
+Model.first_or_create(x: 1, y: 2)
+```
+&lt;br&gt;
+At least I did at first. It caused a bug in that nothing ever gets created with `{x=1, y=2}`. This is because Model.first already returns an object - where(`id`=1) - so the create part doesn't get called.
+
+The desired behaviour would be achieved by:
+
+```
+Model.where(x: 1, y: 2).first_or_create
+```</description>
+			<pubDate type="str">2015-01-05</pubDate>
+			<title type="str">Subtle bug coming from Rails' first_or_create</title>
+			<link type="str">http://yangshun.github.io/luna/#/subtle-bug-coming-from-rails'-first_or_create</link>
+			<guid type="str">subtle-bug-coming-from-rails'-first_or_create</guid>
 		</item>
 		<item type="dict">
 			<description type="str">This is yet another blog that I shall promise myself to keep. This one will talk about the projects and cool and uncool things that I've done.
@@ -165,7 +165,7 @@ I saw a friend's [super cool blog](http://yangshun.im/cs3216/#/) and after a few
 Seems pretty cool! Because of this I had to install a LAMP stack and run on localhost to preview every edit, but it's a one time set up and now I can blog in markdown(for which I need to refer to [the cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)).
 
 Let's get some shit done!</description>
-			<pubDate type="str">2015-01-09</pubDate>
+			<pubDate type="str">2015-01-19</pubDate>
 			<title type="str">blog commit -m &quot;init&quot;</title>
 			<link type="str">http://yangshun.github.io/luna/#/blog-commit--m-&quot;init&quot;</link>
 			<guid type="str">blog-commit--m-&quot;init&quot;</guid>
