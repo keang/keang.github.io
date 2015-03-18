@@ -135,19 +135,87 @@ function SinglePostCtrl($scope, $routeParams) {
 }
 
 function HomeCtrl($scope, $http){
-  $.ajax({
-    url: '/projects.json'
-  }).done(function(data) {
-    console.log(data)
-    $scope.projects = data
-    for (var i = 0; i < $scope.projects.length; i++) {
-      $scope.projects[i].description = converter.makeHtml($scope.projects[i].description);
-      console.log('description: ');
-      console.log($scope.projects[i].description);
-    }
-    console.log('all projects loaded');
-    $scope.$apply();
-  });
+  // $.ajax({
+  //   url: '/projects.json'
+  // }).done(function(data) {
+  //   console.log(data)
+  //   $scope.projects = data
+  //   for (var i = 0; i < $scope.projects.length; i++) {
+  //     $scope.projects[i].description = converter.makeHtml($scope.projects[i].description);
+  //     console.log('description: ');
+  //     console.log($scope.projects[i].description);
+  //   }
+  //   console.log('all projects loaded');
+  //   $scope.$apply();
+  // });
+var data=[
+  {
+  "title": "Market9",
+  "description" : "Community to solve the last mile problem for grocery",
+  "image" : "market9.png",
+  "link" : "http://www.market9.sg/landing"
+  },
+  {
+  "title": "Screengrab",
+  "description" : "Web service to serve screenshot of pages.",
+  "image" : "screengrab.png",
+  "link" : "http://screengrab.keang.me"
+  },
+  {
+  "title": "2048 bot",
+  "description" : "Stupid bot to loop your moves. [Read here](http://keang.me/blog/#/2048-bot).",
+  "image" : "2048.png",
+  "link" : "http://keang.me/2048"
+  },
+  {
+  "title": "Follodota",
+  "description" : "DotA professional match aggregator",
+  "image" : "follodota.png",
+  "link" : "https://play.google.com/store/apps/details?id=com.follodota&hl=en"
+  },
+  {
+  "title": "Flappy Quiz",
+  "description" : "Give out your quiz with flappy bird. [More here](http://keang.me/blog/#/joining-the-flappy-craze).",
+  "image" : "flappy.png",
+  "link" : "http://keang.me/2048"
+  },
+  {
+  "title": "Brewnus",
+  "description" : "Count the alcohol stash on campus!",
+  "image" : "brewnus.png",
+  "link" : "http://brewnus.herokuapp.com/"
+  },
+  {
+  "title": "Staime",
+  "description" : "Shopping loyalty in Cambodia",
+  "image" : "staime.png",
+  "link" : "http://www.staime-app.com/"
+  },
+  {
+  "title": "Bounceball",
+  "description" : "Unity powered game on [facebook](https://apps.facebook.com/unitybounceball) and [android](https://play.google.com/store/apps/details?id=com.kakada.gimmieunitydemo).",
+  "image" : "bounceball.png",
+  "link" : "https://apps.facebook.com/unitybounceball"
+  },
+  {
+  "title": "English Repeat",
+  "description" : "Android app to teach my parents English",
+  "image" : "englishrepeat.png",
+  "link" : "https://play.google.com/store/apps/details?id=com.kakadadroid.englishrepeat"
+  },
+  {
+  "title": "Cocross",
+  "description" : "a crossfit companion app",
+  "image" : "cocross.png",
+  "link" : "https://github.com/cocross/cocross_android"
+  }
+]
+  $scope.projects = data
+  for (var i = 0; i < $scope.projects.length; i++) {
+    $scope.projects[i].description = converter.makeHtml($scope.projects[i].description);
+    console.log('description: ');
+    console.log($scope.projects[i].description);
+  }
 
   $scope.currentTask = ["Freelance", "Find time to sleep", "Read"];
 }
