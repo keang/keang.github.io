@@ -146,6 +146,7 @@ function HomeCtrl($scope, $http){
       console.log($scope.projects[i].description);
     }
     console.log('all projects loaded');
+    $scope.$apply();
   });
 
   $scope.currentTask = ["Freelance", "Find time to sleep", "Read"];
