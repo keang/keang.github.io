@@ -135,7 +135,10 @@ function SinglePostCtrl($scope, $routeParams) {
 }
 
 function HomeCtrl($scope, $http){
-  $http.get('/projects.json').success(function(data) {
+  $.ajax({
+    url: '/projects.json'
+  }).done(function(data) {
+    console.log(data)
     $scope.projects = data
     for (var i = 0; i < $scope.projects.length; i++) {
       $scope.projects[i].description = converter.makeHtml($scope.projects[i].description);
