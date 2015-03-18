@@ -16,7 +16,7 @@ function LunaCtrl($scope, $http, $timeout, $location) {
   console.log('luna ctrl init');
   $scope.disable_animations = !CONFIG.ENABLE_ANIMATIONS;
   $scope.all_posts_loaded = false;
-  $scope.blog = { 
+  $scope.blog = {
     title: CONFIG.BLOG_TITLE,
     nav_title: CONFIG.NAV_TITLE,
     use_disqus: CONFIG.USE_DISQUS
@@ -30,7 +30,7 @@ function LunaCtrl($scope, $http, $timeout, $location) {
       $scope.posts[i].date = d.toString();
     }
     console.log('all posts loaded');
-    
+
     $scope.all_posts_loaded = true;
     $timeout(function() {
       $scope.$broadcast('allPostsLoaded');
@@ -59,7 +59,7 @@ function LandingCtrl($scope, $routeParams) {
   } else {
     $scope.$on('allPostsLoaded', getPagePosts);
   }
-  
+
   function getPagePosts() {
     $scope.current_page = $routeParams.page ? parseInt($routeParams.page) : 1;
     $scope.prev_page = $scope.current_page - 1 > 0 ? $scope.current_page - 1 : undefined;
@@ -79,12 +79,12 @@ function AllPostsCtrl($scope) {
 }
 
 function SinglePostCtrl($scope, $routeParams) {
-  
+
   $scope.post_loaded = false;
   $scope.newer_post_id = undefined;
   $scope.older_post_id = undefined;
 
-  if ($scope.$parent.all_posts_loaded) {    
+  if ($scope.$parent.all_posts_loaded) {
     console.log("if");
     loadSinglePost();
   } else {
@@ -99,7 +99,7 @@ function SinglePostCtrl($scope, $routeParams) {
     console.log("loading single post");
     function findPostFromPostId(post_id) {
       for (var i = 0; i < $scope.$parent.posts.length; i++) {
-        if ($scope.$parent.posts[i].post_id === post_id) {          
+        if ($scope.$parent.posts[i].post_id === post_id) {
           $scope.post_loaded = true;
           $scope.newer_post_id = i - 1 >= 0 ? $scope.$parent.posts[i-1].post_id : undefined;
           $scope.older_post_id = i + 1 <= $scope.$parent.posts.length - 1 ? $scope.$parent.posts[i+1].post_id : undefined;
@@ -145,5 +145,5 @@ function HomeCtrl($scope, $http){
     console.log('all projects loaded');
   });
 
-  $scope.currentTask = ["Find a routine.", "Learn to cook.", "Find peace with self"];
+  $scope.currentTask = ["Freelance", "Find time to sleep", "Read"];
 }
