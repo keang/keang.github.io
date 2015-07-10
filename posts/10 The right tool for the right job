@@ -1,0 +1,12 @@
+The right tool for the right job
+==
+Jul 9 2015 03:12AM
+[deepo](http://www.deepo.io/)(previously Gimmie), is upgrading our first minimal infrastructure.
+We used to be on Postgresql(RDS) + Rails(Heroku) + Golang(Heroku). It was simple to start with, but grew grew to be come a sluggish patchwork. The traffic that we deal with isn't huge by any standard, but we attempted to count uniques on some largish tables. We added master-slave replica to separate the writes and reads, created composite indexes on the queried columns, partitioned the table by date range, have background jobs update a summary table out of a star schema, but still we get very slow response time on the unique count queries.
+
+Yes there's [HyperLogLog](https://en.wikipedia.org/wiki/HyperLogLog), and we've realise we should tolerate the 2% error. But we learned that the hard way. By now our partitioned slave once in a while throws a timeout on simple select. I suspect it is because of my tinkering with column constraints without properly handling existing violations. Or it could be that rails migration of databases don't play nicely with master-slave set up. I have to do the same query on the master instance to avoid a timeout.
+
+On top of the intermitten query problems, our postgresql acted like a poor man's persistent message queue. We have a `pending_page_views` table from which rows are waiting to be processed, then removed and inserted into the `page_views` table. Those extra writes and reads that results from the clumsy pipeline probably doesn't help the responsiveness of the database. It got the job done, and there were no extra technology to integrate. Simply postgres and rails sidekiq. Simple is good right?
+
+In retrospect, it was simple only in coding it out, as we didn't have to climb the learning curve of any other tools. But
+
