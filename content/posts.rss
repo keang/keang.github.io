@@ -5,11 +5,11 @@
 		<description>This is a demonstration of Luna Blogging Engine</description>
 		<link>http://yangshun.github.io/luna/#/</link>
 		<item type="dict">
-			<description type="str">[deepo](http://www.deepo.io/) (previously Gimmie), is upgrading our first minimal infrastructure.
+			<description type="str">[deepo](http://www.deepo.io/) is upgrading our first minimal infrastructure.
 
 ###We've Been Lazy
 
-We used to be on Postgresql(RDS) + Rails(Heroku) + Golang(Heroku). It was simple to start with, but grew grew to be come a sluggish patchwork. The traffic that we deal with isn't huge by any standard, but we attempted to count uniques on some largish tables. We added master-slave replica to separate the writes and reads, created composite indexes on the queried columns, partitioned the table by date range, have background jobs update a summary table out of a star schema, but still we get very slow response time on the unique count queries.
+We used to be on Postgresql(RDS) + Rails(Heroku) + Golang(Heroku). It was simple to start with, but grew to be come a sluggish patchwork. The traffic that we deal with isn't huge by any standard, but we attempted to count uniques on some largish tables. We added master-slave replica to separate the writes and reads, created composite indexes on the queried columns, partitioned the table by date range, have background jobs update a summary table out of a star schema, but still we get very slow response time on the unique count queries.
 
 Yes there's [HyperLogLog](https://en.wikipedia.org/wiki/HyperLogLog), and we've realise we should tolerate the 2% error. But we learned that the hard way. By now our partitioned slave throws a timeout on simple select, once in a while. I suspect it is because of my tinkering with column constraints without properly handling existing violations. Or it could be that rails migration of databases don't play nicely with master-slave set up. I have to do the same query on the master instance to avoid a timeout. 
 
@@ -24,12 +24,12 @@ Along the way a couple of different experienced opinions sugguested we utilize a
 
 &quot;But, you mean I'll have to rewrite all my queries?!&quot; Yes. 
 
-Luckily for us it wasn't that painful at all. The `pending_page_views` and `page_views` aren't really &quot;relational&quot; data anyway. 
+Luckily for us, it wasn't that painful at all. The `pending_page_views` and `page_views` aren't really &quot;relational&quot; data anyway. 
 They are more like [log data](http://docs.mongodb.org/ecosystem/use-cases/storing-log-data/) (who visit what page at what time). 
 
 We then have have Postgresql(RDS) + Rails(EC2) + MongoDB(EC2) + Golang(EC2). 
 
-We keep app configurations that faces client admins as relational data. Postgresql for relational data, MongoDB for non-relational data. Sounds good! Although the complexity is now increased.
+We keep app configurations that face client admins as relational data. Postgresql for relational data, MongoDB for non-relational data. Sounds good! Although the complexity is now increased.
 
 ###AMQP
 
