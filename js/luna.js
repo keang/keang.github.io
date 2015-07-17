@@ -159,13 +159,13 @@ var data=[
   "title": "Screengrab",
   "description" : "Web service to serve screenshot of pages.",
   "image" : "screengrab.png",
-  "link" : "http://screengrab.keang.me"
+  "link" : "http://screengrab.herokuapp.com"
   },
   {
   "title": "2048 bot",
-  "description" : "Stupid bot to loop your moves. [Read here](http://keang.me/blog/#/2048-bot).",
+  "description" : "Stupid bot to loop your moves. [Read here](http://www.keang.be/blog/#/2048-bot).",
   "image" : "2048.png",
-  "link" : "http://keang.me/2048"
+  "link" : "http://www.keang.be/2048"
   },
   {
   "title": "Follodota",
@@ -175,9 +175,9 @@ var data=[
   },
   {
   "title": "Flappy Quiz",
-  "description" : "Give out your quiz with flappy bird. [More here](http://keang.me/blog/#/joining-the-flappy-craze).",
+  "description" : "Give out your quiz with flappy bird. [More here](http://www.keang.be/#/blog/joining-the-flappy-craze).",
   "image" : "flappy.png",
-  "link" : "http://keang.me/2048"
+  "link" : "http://www.keang.be/flappy-quiz/"
   },
   {
   "title": "Brewnus",
