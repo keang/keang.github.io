@@ -225,11 +225,11 @@ See it [flapping live here](http://keang.github.io/flappy-quiz/) and if you want
 		<item type="dict">
 			<description type="str">We saw 3 instances of a user agent string that broke our Python queries; It came with a non-utf8 encoded [&quot;orange.espana&quot;](https://en.wikipedia.org/wiki/Orange_Espa%C3%B1a).
 
-[Pymongo](https://pypi.python.org/pypi/pymongo/) throws an error (`UnicodeEncodeError`) when a query with those documents are returned. And we never get to see the id or anything of the related document. Scoping the query to logs from different time frame made the query go through, so we figured we just need to remove the offending document.
+[Pymongo](https://pypi.python.org/pypi/pymongo/) throws an error (`UnicodeEncodeError`) when a query with those documents are returned. And we never get to see the id or anything of the related document. But scoping the query to logs from different time frame made the query go through, so we figured we just need to remove the offending document.
 
 Turns out it's actually really hard to find the offenders.
 
-`db.collection.find({&quot;user_agent&quot;:/orange.esp/})` doesn't return the `&quot;orange.espana&quot; doc, because probably the non-utf8 string is skipped when searching for match.
+Beacause the query `db.collection.find({&quot;user_agent&quot;:/orange.esp/})` doesn't return the `&quot;orange.espana&quot; doc, because probably the non-utf8 string is skipped when searching for match.
 
 But luckily the query only fails in the python client, and when we use the mongo console, we are able to print everything out, offending or not. So we did a binary search and narrowed down to a small enough scope that we can just scroll through and find the '?' and out of frustration we purged the entries.
 
