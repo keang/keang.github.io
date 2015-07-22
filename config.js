@@ -1,7 +1,7 @@
 var CONFIG = {};
 
 CONFIG.BLOG_TITLE = "Keang's blog";
-CONFIG.NAV_TITLE = 'Kakaka';
+CONFIG.NAV_TITLE = "Keang's";
 
 CONFIG.SHOW_SIDEBAR = true;
 CONFIG.NUM_POSTS_IN_SIDEBAR = 5;
