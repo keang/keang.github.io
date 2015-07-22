@@ -11,7 +11,7 @@
 
 We used to be on Postgresql(RDS) + Rails(Heroku) + Golang(Heroku). It was simple to start with, but grew to be come a sluggish patchwork. The traffic that we deal with isn't huge by any standard, but we attempted to count uniques on some largish tables. We added master-slave replica to separate the writes and reads, created composite indexes on the queried columns, partitioned the table by date range, have background jobs update a summary table out of a star schema, but still we get very slow response time on the unique count queries.
 
-Yes there's [HyperLogLog](https://en.wikipedia.org/wiki/HyperLogLog), and we've realise we should tolerate the 2% error. But we learned that the hard way. By now our partitioned slave throws a timeout on simple select, once in a while. I suspect it is because of my tinkering with column constraints without properly handling existing violations. Or it could be that rails migration of databases don't play nicely with master-slave set up. I have to do the same query on the master instance to avoid a timeout.
+Yes there's [HyperLogLog](https://en.wikipedia.org/wiki/HyperLogLog), and we've realise we should tolerate the 2% error. But we learned that the hard way. By now our partitioned slave throws a timeout on simple select, once in a while. I suspect it is because of my tinkering with column constraints without properly handling existing violations. Or it could be that rails migration of databases don't play nicely with master-slave set up. I have to do the same query on the master instance to avoid a timeout. 
 
 On top of the intermitten query problems, there was a pending design issue. Our postgresql acted like a poor man's persistent message queue. We have a `pending_page_views` table from which rows are waiting to be processed, then removed and inserted into the `page_views` table. Those extra writes and reads that results from the clumsy pipeline probably doesn't help the responsiveness of the database. It got the job done, and there were no extra technology to integrate. Simply postgres and rails sidekiq. Simple is good right?
 
@@ -20,20 +20,20 @@ fast as possible with as little effort as possible, which is still a noble thing
 
 ###SQL vs NoSQL
 
-Along the way a couple of different experienced opinions sugguested we utilize a nosql database to take care of one part of the app, where writes is intensive, and queries are never joined.
+Along the way a couple of different experienced opinions sugguested we utilize a nosql database to take care of one part of the app, where writes is intensive, and queries are never joined. 
 
-&quot;But, you mean I'll have to rewrite all my queries?!&quot; Yes.
+&quot;But, you mean I'll have to rewrite all my queries?!&quot; Yes. 
 
-Luckily for us, it wasn't that painful at all. The `pending_page_views` and `page_views` aren't really &quot;relational&quot; data anyway.
-They are more like [log data](http://docs.mongodb.org/ecosystem/use-cases/storing-log-data/) (who visit what page at what time).
+Luckily for us, it wasn't that painful at all. The `pending_page_views` and `page_views` aren't really &quot;relational&quot; data anyway. 
+They are more like [log data](http://docs.mongodb.org/ecosystem/use-cases/storing-log-data/) (who visit what page at what time). 
 
-We then have have Postgresql(RDS) + Rails(EC2) + MongoDB(EC2) + Golang(EC2).
+We then have have Postgresql(RDS) + Rails(EC2) + MongoDB(EC2) + Golang(EC2). 
 
 We keep app configurations that face client admins as relational data. Postgresql for relational data, MongoDB for non-relational data. Sounds good! Although the complexity is now increased.
 
 ###AMQP
 
-I've heard about [rabbitmq](https://www.rabbitmq.com/) before, but didn't really understand why I need it. Because I didn't. I probably still don't understand it. But I try: you can make a pub/sub thing, so we can queue and distribute the processing of incoming data stream to multile workers. Should fit the bill for our batch jobs on `pending_page_view`. It's an easy-to-setup AMQP protocal that persists messages;
+I've heard about [rabbitmq](https://www.rabbitmq.com/) before, but didn't really understand why I need it. Because I didn't. I probably still don't understand it. But I try: you can make a pub/sub thing, so we can queue and distribute the processing of incoming data stream to multile workers. Should fit the bill for our batch jobs on `pending_page_view`. It's an easy-to-setup AMQP protocal that persists messages; 
 so if the server shuts down we can just restart and continue picking up jobs. (I finally understood [Apache Kafka](http://kafka.apache.org/) too)
 
 So now: Postgresql(RDS) + Rails (EC2) + MongoDB(EC2) + Golang+Rabbitmq(EC2)
@@ -46,10 +46,10 @@ Finally: Postgresql(RDS) + Rails (EC2) + MongoDB(EC2) + Golang+Rabbitmq+Python(E
 
 ###Work in Progress
 
-Some decisions are probably not the best, and some obvious, but it's a starting point for me, questioning &quot;Is this the right tool for this job?&quot;; and everytime I've addressed that, I feel good.
+Some decisions are probably not the best, and some obvious, but it's a starting point for me, questioning &quot;Is this the right tool for this job?&quot;; and everytime I've addressed that, I feel good. 
 Everyone should feel good, so everyone should ask that question.
 
-However, the answer to &quot;is this the right tool for this job&quot; depends on what's available on your toolbelt.
+However, the answer to &quot;is this the right tool for this job&quot; depends on what's available on your toolbelt. 
 I've got only a handful and some of them I probably have wrong understandings of (like [AMQP rabbitmq](#)), but I'll be trying to aquire and sharpen more tools.</description>
 			<pubDate type="str">2015-07-09</pubDate>
 			<title type="str">The right tool for the right job</title>
@@ -57,7 +57,7 @@ I've got only a handful and some of them I probably have wrong understandings of
 			<guid type="str">the-right-tool-for-the-right-job</guid>
 		</item>
 		<item type="dict">
-			<description type="str">**Up-update:** I [forked the 2048 game](http://www.keang.be/2048) and added a looper feature, where anyone can create their stupid bot!
+			<description type="str">**Up-update:** I [forked the 2048 game](http://keang.me/2048) and added a looper feature, where anyone can create their stupid bot!
 
 **Update:** I stumbled upon this [super robust AI]( http://ov3y.github.io/2048-AI/) which solves the game! albiet with a bit of lag.
 
@@ -140,27 +140,6 @@ I'll probably visit this again and add in the dimensions for iOS resources as we
 			<guid type="str">export-resources-for-android-with-adobescript</guid>
 		</item>
 		<item type="dict">
-			<description type="str">I've always wanted to build something related to DotA2, because it's such an awesome game and I've been spending at least 5 hours a week clicking away playing DotA. So for the past 3 weeks I've been working on a video aggregator app, [follodota](https://play.google.com/store/apps/details?id=com.follodota&amp;hl=en), which consolidates the English commentated matches uploaded by joinDota and beyondTheSummit.
-
-This is an end-to-end application that I built while learning on the job: a python script which crawls the dotacinema.com website for new content, a rails app as server hosted on Heroku to store and serve the match information with json api, and of course an android native app to play those videos.
-
-Currently it is still in its infancy, and I still have to run the python script every now and then. The script only gets 15 entries because the [beautiful soup](http://www.crummy.com/software/BeautifulSoup/bs4/doc/) + [request](http://docs.python-requests.org/en/latest/) combo in python could not emulate a scrolling down event, which is needed to load more videos on [dotacinema.com](www.dotacinema.com/vod). Much more work to do :P
-
-But for now, you can search the matches chronologically, by teams and by leagues (and easily by casters, but that's not implemented yet). My hope would be to get this thing ready for TI4!([last year's TI here](http://www.dota2.com/international/home/overview/))
-
-&lt;ul class=&quot;todo&quot;&gt;Todo:
-&lt;li class=&quot;todoitem&quot;&gt;add in some Gimmie awesomeness in gamification&lt;/li&gt;
-&lt;li class=&quot;todoitem&quot;&gt;an iOS client would be great too &lt;/li&gt;
-&lt;li class=&quot;todoitem&quot;&gt;and also to crawl for more matches. &lt;/li&gt;
-&lt;/ul&gt;
-
-Maybe a script to automatically run the crawling script (which automatically posts matches to through the api). autoception. hah.</description>
-			<pubDate type="str">2014-03-13</pubDate>
-			<title type="str">End to end application: Follodota</title>
-			<link type="str">http://yangshun.github.io/luna/#/end-to-end-application:-follodota</link>
-			<guid type="str">end-to-end-application:-follodota</guid>
-		</item>
-		<item type="dict">
 			<description type="str">This is yet another blog that I shall promise myself to keep. This one will talk about the projects and cool and uncool things that I've done.
 
 I saw a friend's [super cool blog](http://yangshun.im/cs3216/#/) and after a few minutes of picking around I found his little python-based page generators for blogs, [luna](https://github.com/yangshun/luna). I just lost all the excuses to delay this. Mainly because I just wanted to try out this 'blogging engin'.
@@ -185,6 +164,27 @@ While it's extremely useful and fulfilling, I still could not find enough reason
 			<title type="str">RegEx is fascinating</title>
 			<link type="str">http://yangshun.github.io/luna/#/regex-is-fascinating</link>
 			<guid type="str">regex-is-fascinating</guid>
+		</item>
+		<item type="dict">
+			<description type="str">I've always wanted to build something related to DotA2, because it's such an awesome game and I've been spending at least 5 hours a week clicking away playing DotA. So for the past 3 weeks I've been working on a video aggregator app, [follodota](https://play.google.com/store/apps/details?id=com.follodota&amp;hl=en), which consolidates the English commentated matches uploaded by joinDota and beyondTheSummit.
+
+This is an end-to-end application that I built while learning on the job: a python script which crawls the dotacinema.com website for new content, a rails app as server hosted on Heroku to store and serve the match information with json api, and of course an android native app to play those videos.
+
+Currently it is still in its infancy, and I still have to run the python script every now and then. The script only gets 15 entries because the [beautiful soup](http://www.crummy.com/software/BeautifulSoup/bs4/doc/) + [request](http://docs.python-requests.org/en/latest/) combo in python could not emulate a scrolling down event, which is needed to load more videos on [dotacinema.com](www.dotacinema.com/vod). Much more work to do :P
+
+But for now, you can search the matches chronologically, by teams and by leagues (and easily by casters, but that's not implemented yet). My hope would be to get this thing ready for TI4!([last year's TI here](http://www.dota2.com/international/home/overview/))
+
+&lt;ul class=&quot;todo&quot;&gt;Todo:
+&lt;li class=&quot;todoitem&quot;&gt;add in some Gimmie awesomeness in gamification&lt;/li&gt;
+&lt;li class=&quot;todoitem&quot;&gt;an iOS client would be great too &lt;/li&gt;
+&lt;li class=&quot;todoitem&quot;&gt;and also to crawl for more matches. &lt;/li&gt;
+&lt;/ul&gt;
+
+Maybe a script to automatically run the crawling script (which automatically posts matches to through the api). autoception. hah.</description>
+			<pubDate type="str">2014-03-13</pubDate>
+			<title type="str">End to end application: Follodota</title>
+			<link type="str">http://yangshun.github.io/luna/#/end-to-end-application:-follodota</link>
+			<guid type="str">end-to-end-application:-follodota</guid>
 		</item>
 		<item type="dict">
 			<description type="str">**tl;dr**: my flappy clone [here](http://keang.github.io/flappy-quiz/).
@@ -221,6 +221,25 @@ See it [flapping live here](http://keang.github.io/flappy-quiz/) and if you want
 			<title type="str">Joining the Flappy craze</title>
 			<link type="str">http://yangshun.github.io/luna/#/joining-the-flappy-craze</link>
 			<guid type="str">joining-the-flappy-craze</guid>
+		</item>
+		<item type="dict">
+			<description type="str">We saw 3 instances of a user agent string that broke our Python queries; It came with a non-utf8 encoded [&quot;orange.espana&quot;](https://en.wikipedia.org/wiki/Orange_Espa%C3%B1a).
+
+[Pymongo](https://pypi.python.org/pypi/pymongo/) throws an error (`UnicodeEncodeError`) when a query with those documents are returned. And we never get to see the id or anything of the related document. Scoping the query to logs from different time frame made the query go through, so we figured we just need to remove the offending document.
+
+Turns out it's actually really hard to find the offenders.
+
+`db.collection.find({&quot;user_agent&quot;:/orange.esp/})` doesn't return the `&quot;orange.espana&quot; doc, because probably the non-utf8 string is skipped when searching for match.
+
+But luckily the query only fails in the python client, and when we use the mongo console, we are able to print everything out, offending or not. So we did a binary search and narrowed down to a small enough scope that we can just scroll through and find the '?' and out of frustration we purged the entries.
+
+Wth happened to the device that sent non-utf8 user agent?! And only 3 instances of them -.-
+
+It was interesting that mongo didn't complain when we save non-utf8 strings in the document, through the [golang client](http://godoc.org/gopkg.in/mgo.v2); Gotta test that out again and document it. Now we do a unidecode on incoming user agent strings, just in case it would save us from squinting our eyes through hundreds of user agent strings again.</description>
+			<pubDate type="str">2015-07-23</pubDate>
+			<title type="str">Non-utf8 vs Mongodb</title>
+			<link type="str">http://yangshun.github.io/luna/#/non-utf8-vs-mongodb</link>
+			<guid type="str">non-utf8-vs-mongodb</guid>
 		</item>
 	</channel>
 </rss>
