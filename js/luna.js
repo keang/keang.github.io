@@ -217,5 +217,5 @@ var data=[
     console.log($scope.projects[i].description);
   }
 
-  $scope.currentTask = ["Freelance", "Find time to sleep", "Read"];
+  $scope.todo = ["Reinforcement learning", "Rabbitmq", "Logstash + Kibanna"];
 }
