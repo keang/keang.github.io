@@ -11,7 +11,7 @@
 
 We used to be on Postgresql(RDS) + Rails(Heroku) + Golang(Heroku). It was simple to start with, but grew to be come a sluggish patchwork. The traffic that we deal with isn't huge by any standard, but we attempted to count uniques on some largish tables. We added master-slave replica to separate the writes and reads, created composite indexes on the queried columns, partitioned the table by date range, have background jobs update a summary table out of a star schema, but still we get very slow response time on the unique count queries.
 
-Yes there's [HyperLogLog](https://en.wikipedia.org/wiki/HyperLogLog), and we've realise we should tolerate the 2% error. But we learned that the hard way. By now our partitioned slave throws a timeout on simple select, once in a while. I suspect it is because of my tinkering with column constraints without properly handling existing violations. Or it could be that rails migration of databases don't play nicely with master-slave set up. I have to do the same query on the master instance to avoid a timeout. 
+Yes there's [HyperLogLog](https://en.wikipedia.org/wiki/HyperLogLog), and we've realise we should tolerate the 2% error. But we learned that the hard way. By now our partitioned slave throws a timeout on simple select, once in a while. I suspect it is because of my tinkering with column constraints without properly handling existing violations. Or it could be that rails migration of databases don't play nicely with master-slave set up. I have to do the same query on the master instance to avoid a timeout.
 
 On top of the intermitten query problems, there was a pending design issue. Our postgresql acted like a poor man's persistent message queue. We have a `pending_page_views` table from which rows are waiting to be processed, then removed and inserted into the `page_views` table. Those extra writes and reads that results from the clumsy pipeline probably doesn't help the responsiveness of the database. It got the job done, and there were no extra technology to integrate. Simply postgres and rails sidekiq. Simple is good right?
 
@@ -20,20 +20,20 @@ fast as possible with as little effort as possible, which is still a noble thing
 
 ###SQL vs NoSQL
 
-Along the way a couple of different experienced opinions sugguested we utilize a nosql database to take care of one part of the app, where writes is intensive, and queries are never joined. 
+Along the way a couple of different experienced opinions sugguested we utilize a nosql database to take care of one part of the app, where writes is intensive, and queries are never joined.
 
-&quot;But, you mean I'll have to rewrite all my queries?!&quot; Yes. 
+&quot;But, you mean I'll have to rewrite all my queries?!&quot; Yes.
 
-Luckily for us, it wasn't that painful at all. The `pending_page_views` and `page_views` aren't really &quot;relational&quot; data anyway. 
-They are more like [log data](http://docs.mongodb.org/ecosystem/use-cases/storing-log-data/) (who visit what page at what time). 
+Luckily for us, it wasn't that painful at all. The `pending_page_views` and `page_views` aren't really &quot;relational&quot; data anyway.
+They are more like [log data](http://docs.mongodb.org/ecosystem/use-cases/storing-log-data/) (who visit what page at what time).
 
-We then have have Postgresql(RDS) + Rails(EC2) + MongoDB(EC2) + Golang(EC2). 
+We then have have Postgresql(RDS) + Rails(EC2) + MongoDB(EC2) + Golang(EC2).
 
 We keep app configurations that face client admins as relational data. Postgresql for relational data, MongoDB for non-relational data. Sounds good! Although the complexity is now increased.
 
 ###AMQP
 
-I've heard about [rabbitmq](https://www.rabbitmq.com/) before, but didn't really understand why I need it. Because I didn't. I probably still don't understand it. But I try: you can make a pub/sub thing, so we can queue and distribute the processing of incoming data stream to multile workers. Should fit the bill for our batch jobs on `pending_page_view`. It's an easy-to-setup AMQP protocal that persists messages; 
+I've heard about [rabbitmq](https://www.rabbitmq.com/) before, but didn't really understand why I need it. Because I didn't. I probably still don't understand it. But I try: you can make a pub/sub thing, so we can queue and distribute the processing of incoming data stream to multile workers. Should fit the bill for our batch jobs on `pending_page_view`. It's an easy-to-setup AMQP protocal that persists messages;
 so if the server shuts down we can just restart and continue picking up jobs. (I finally understood [Apache Kafka](http://kafka.apache.org/) too)
 
 So now: Postgresql(RDS) + Rails (EC2) + MongoDB(EC2) + Golang+Rabbitmq(EC2)
@@ -46,10 +46,10 @@ Finally: Postgresql(RDS) + Rails (EC2) + MongoDB(EC2) + Golang+Rabbitmq+Python(E
 
 ###Work in Progress
 
-Some decisions are probably not the best, and some obvious, but it's a starting point for me, questioning &quot;Is this the right tool for this job?&quot;; and everytime I've addressed that, I feel good. 
+Some decisions are probably not the best, and some obvious, but it's a starting point for me, questioning &quot;Is this the right tool for this job?&quot;; and everytime I've addressed that, I feel good.
 Everyone should feel good, so everyone should ask that question.
 
-However, the answer to &quot;is this the right tool for this job&quot; depends on what's available on your toolbelt. 
+However, the answer to &quot;is this the right tool for this job&quot; depends on what's available on your toolbelt.
 I've got only a handful and some of them I probably have wrong understandings of (like [AMQP rabbitmq](#)), but I'll be trying to aquire and sharpen more tools.</description>
 			<pubDate type="str">2015-07-09</pubDate>
 			<title type="str">The right tool for the right job</title>
@@ -90,6 +90,25 @@ Model.where(x: 1, y: 2).first_or_create
 			<title type="str">Subtle bug coming from Rails' first_or_create</title>
 			<link type="str">http://yangshun.github.io/luna/#/subtle-bug-coming-from-rails'-first_or_create</link>
 			<guid type="str">subtle-bug-coming-from-rails'-first_or_create</guid>
+		</item>
+		<item type="dict">
+			<description type="str">[deepo](http://www.deepo.io/) is upgrading our infrastructure yet again.
+
+And in the past 2 weeks, I had sort of a clinic for operations work, AWS guided. And acronyms infested.
+
+I've come to see the &quot;ephemerality&quot; of EC2 instances (even the ones with EBS backed storage). This view helped quite a bit when I accidently Terminated an instance, when I was only trying to Stop it. (Yes I clicked confirm. I should keep in mind that dialog boxes are important, more often than not.)
+
+I have also found a new level of appreciation for docker -actually, docker-compose- and its recipe over material approach. What I have been doing with real ec2 boxes, docker-compose does with containers.
+
+ELB + EC2 + Docker + Docker-compose. I can literally spin up a whole stack in 5 minutes!
+
+Deepo now is moving on to Golang + Rabbitmq + Python worker + Cassandra + Postgres + Rails. Redis cache here and there.
+
+Automate everything! That's another thing that's just earned new appreciations from another noob dev.</description>
+			<pubDate type="str">2015-10-14</pubDate>
+			<title type="str">AWS: My ops clinic</title>
+			<link type="str">http://yangshun.github.io/luna/#/aws:-my-ops-clinic</link>
+			<guid type="str">aws:-my-ops-clinic</guid>
 		</item>
 		<item type="dict">
 			<description type="str">`render_view` was the missing piece:

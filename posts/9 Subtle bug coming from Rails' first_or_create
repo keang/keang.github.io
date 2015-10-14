@@ -1,6 +1,7 @@
 Subtle bug coming from Rails' first_or_create
 ==
-Jan 5 2015 19:12PM
+Jan 5 2015 7:12PM
+
 One very useful method provided by Rails is [`first_or_create`](http://apidock.com/rails/v4.1.8/ActiveRecord/Relation/first_or_create)
 
 But there's a substantial probability that one might use it like this:
