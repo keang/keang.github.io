@@ -6,7 +6,7 @@
 # 'jekyll serve'. If you change this file, please restart the server process.
 
 # Site settings
-title: Development.log
+title: development.log
 email: skeang@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
   This serves as a log of things I've learnt or observed. I'm a software engineer who's still naive and optimistic, and eager to get my hands dirty with codes.
