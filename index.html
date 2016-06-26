@@ -1,146 +1,23 @@
-<!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> white-space:pre-wrap;<![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" ng-app="luna"> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+---
+layout: default
+---
 
-        <meta name="description" content="">
-        <meta name="keywords" content="keang" />
-        <meta http-equiv="Cache-control" content="public, max-age=259200">
-        <meta name="viewport" content="width=device-width">
-        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-        <link href='http://fonts.googleapis.com/css?family=Arvo:400,700' rel='stylesheet' type='text/css'>
-        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="/css/normalize.css">
-        <link rel="stylesheet" href="/css/bootstrap.min.css">
-        <link rel="stylesheet" href="/css/foundation.min.css">
-        <link rel="stylesheet" href="/css/main.css">
-        <script src="config.js"></script>
-        <script src="/js/vendor/showdown.js"></script>
-        <script>
-            var converter = new Showdown.converter();
-        </script>
-        <script src="/js/vendor/modernizr.js"></script>
-        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.min.js"></script>
-        <script src="/js/luna.js"></script>
-        <script>var deepo={oReq:new XMLHttpRequest,get:function(e){return decodeURIComponent(document.cookie.replace(new RegExp('(?:(?:^|.*;)\\s*'+encodeURIComponent(e).replace(/[\-\.\+\*]/g,'\\$&')+'\\s*\\=\\s*([^;]*).*$)|^.*$'),'$1'))||null},track:function(e){this.key=e,this.oReq.open('post','https://pier.deepo.io/track',!0),data={k:e,a:document.URL,u:this.get('deepou'),s:this.get('deepos'),c:(new Date).toJSON(),as:this.get('deepoas')},this.oReq.send(JSON.stringify(data))},load:function(){var e=document.createElement('script');e.type='text/javascript',e.async=!0,e.src='https://dock.deepo.io/assets/dpo.min.js';var t=document.getElementsByTagName('script')[0];t.parentNode.insertBefore(e,t)}}; deepo.track('TmFpt1TFJy46BF7oHnOacg'),deepo.load();</script>
-        <title>Keang's</title>
-    </head>
-    <body ng-class="{'skip-animations':disable_animations}" ng-controller="LunaCtrl">
-        <!--[if lt IE 7]>
-            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
-        <![endif]-->
-        <nav class="top-bar" data-topbar>
-          <ul class="title-area">
-            <!-- Title Area -->
-            <li class="name">
-              <h1><a href="/home">{{blog.nav_title}}</a></h1>
-            </li>
-            <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
-            <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
-          </ul>
+<div class="home">
 
-          <section class="top-bar-section">
-            <!-- Left Nav Section -->
-            <ul class="left">
-              <li class="divider"></li>
-              <li ng-class="getClass('/home')"><a href="/#/home">Home</a></li>
-              <li class="divider active"></li>
-              <li ng-class="getClass('/')"><a href="/#/blog">Blog</a></li>
-              <li class="divider"></li>
-              <li class="divider"></li>
-              <li ng-class="getClass('/posts')"><a href="/#/posts">Search</a></li>
-              <!-- <li><a href="#/about">About</a></li>
-              <li class="divider"></li> -->
+  <h1 class="page-heading">Posts</h1>
 
-              <!-- <li class="has-dropdown"><a href="#">Main Item 3</a>
-                <ul class="dropdown">
-                  <li class="has-dropdown"><a href="#">Dropdown Level 1a</a>
+  <ul class="post-list">
+    {% for post in site.posts %}
+      <li>
+        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
 
-                    <ul class="dropdown">
-                      <li><label>Dropdown Level 2 Label</label></li>
-                      <li><a href="#">Dropdown Level 2a</a></li>
-                      <li><a href="#">Dropdown Level 2b</a></li>
-                      <li class="has-dropdown"><a href="#">Dropdown Level 2c</a>
+        <h2>
+          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+        </h2>
+      </li>
+    {% endfor %}
+  </ul>
 
-                        <ul class="dropdown">
-                          <li><label>Dropdown Level 3 Label</label></li>
-                          <li><a href="#">Dropdown Level 3a</a></li>
-                          <li><a href="#">Dropdown Level 3b</a></li>
-                          <li class="divider"></li>
-                          <li><a href="#">Dropdown Level 3c</a></li>
-                        </ul>
-                      </li>
-                      <li><a href="#">Dropdown Level 2d</a></li>
-                      <li><a href="#">Dropdown Level 2e</a></li>
-                      <li><a href="#">Dropdown Level 2f</a></li>
-                    </ul>
-                  </li>
-                  <li><a href="#">Dropdown Level 1b</a></li>
-                  <li><a href="#">Dropdown Level 1c</a></li>
-                  <li class="divider"></li>
-                  <li><a href="#">Dropdown Level 1d</a></li>
-                  <li><a href="#">Dropdown Level 1e</a></li>
-                  <li><a href="#">Dropdown Level 1f</a></li>
-                  <li class="divider"></li>
-                  <li><a href="#">See all &rarr;</a></li>
-                </ul>
-              </li>
-              <li class="divider"></li> -->
-            </ul>
-          </section>
-        </nav>
+  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
 
-
-        <!-- Add your site or application content here -->
-        <div class="main-container" ng-view>
-
-        </div>
-
-        <div class="main-container">
-          <div class="row footer">
-            <div class="large-12 columns">
-              <hr/>
-              <p>&copy; Kakaka</p>
-            </div>
-          </div>
-        </div>
-
-
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
-        <script src="/js/plugins.js"></script>
-        <script src="/js/vendor/fastclick.js"></script>
-        <script src="/js/foundation.min.js"></script>
-        <script src="/js/foundation.topbar.js"></script>
-        <script>
-          $(document).foundation({
-            topbar : {
-              sticky_class : 'sticky',
-              custom_back_text: true, // Set this to false and it will pull the top level link name as the back text
-              back_text: 'Back', // Define what you want your custom back text to be if custom_back_text: true
-              is_hover: true,
-              mobile_show_parent_link: false, // will copy parent links into dropdowns for mobile navigation
-              scrolltop : true // jump to top when sticky nav menu toggle is clicked
-            }
-          });
-          $(function() {
-          });
-        </script>
-
-        <script>
-          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-          ga('create', 'UA-48252571-2', 'kakadadroid.github.io');
-          ga('send', 'pageview');
-
-        </script>
-
-    </body>
-</html>
+</div>
