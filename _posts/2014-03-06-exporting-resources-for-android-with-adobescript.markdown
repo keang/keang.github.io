@@ -2,7 +2,7 @@
 layout: post
 title:  "Export resources for Android with AdobeScript"
 date:   2014-03-06 14:40:41 +0800
-categories: automate images
+categories: automate,images
 comments: true
 ---
 In my learning journey as an Android developer, one annoying task is to export a graphic resource multiple times for the handful of screen resolutions that I want to support: mdpi, hdpi, xhdpi and now xxhdpi. This task involves a repeated set of mouse clicks, a change in scaling value, and navigating to the right folders for the right dpi. It can get quite tedious, especially when I often have multiple images for one button, and a gazillion edits before I'm happy with how it looks.

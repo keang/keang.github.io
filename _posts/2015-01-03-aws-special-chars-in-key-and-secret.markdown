@@ -2,7 +2,7 @@
 layout: post
 title:  "AWS Key and Secret with special characters"
 date:   2015-07-03 12:23:41 +0800
-categories: bug aws
+categories: bug,aws
 comments: true
 ---
 When playing around with file uploads using the gem paperclip from a heroku rails app ([I did as described here](https://devcenter.heroku.com/articles/paperclip-s3)), I got it working from my local environment, successfully uploading images to my bucket. But upon pushing to heroku production, the key and secret seems to have issues and I was given this:

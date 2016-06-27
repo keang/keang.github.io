@@ -2,7 +2,7 @@
 layout: post
 title:  "End to end application: Follodota"
 date:   2014-03-13 02:30:41 +0800
-categories: hack dota
+categories: hack,dota
 comments: true
 ---
 I've always wanted to build something related to DotA2, because it's such an awesome game and I've been spending at least 5 hours a week clicking away playing DotA. So for the past 3 weeks I've been working on a video aggregator app, [follodota](https://play.google.com/store/apps/details?id=com.follodota&hl=en), which consolidates the English commentated matches uploaded by joinDota and beyondTheSummit.

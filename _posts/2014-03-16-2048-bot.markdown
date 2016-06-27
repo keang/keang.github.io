@@ -2,7 +2,7 @@
 layout: post
 title: "2048 bot"
 date: 2014-03-16 15:23:00 +0800
-category: hack 2048
+category: hack,2048
 comments: true
 ---
 **Up-update:** I [forked the 2048 game](http://keang.me/2048) and added a looper feature, where anyone can create their stupid bot!
