@@ -22,23 +22,26 @@ I think I now have that little bit more empathy instead of frustration when lang
 ### Other languages are encouraged!
 I sort of take this for granted, but it was mentioned in a couple of the talks that the community has that openness about it, where it is not shy about trying out and taking lessons from other languages. And hence there are many Rubyists who convert out during their little adventurous detours. Currently I am doing that with python. I will be sure to update if there is anything I learn from python and if python is indeed the go-to language for data analysis.
 
+### It's not going to the moon
+Another takeaway is an echo from last year's conference: it is not that difficult to contribute. From documentation to refactoring to micro-improvements in code performance, there are many possibility of contribution to open-source and to the community.
+It's probably pride that's stopping me from contributing in trivial ways.
+
 ### Be the village
-"It takes a village to raise a child." [Godfrey Chan](https://twitter.com/chancancode) gives an [abstract talk](https://engineers.sg/video/keynote-rethinking-computer-science-education-reddotrubyconf-2016--804) about education and teaching, and he suggests that we should all contribute and "Be the village". Together with [Kenji Mori](https://twitter.com/zyunnosuke), author of a [japanese tech blog](http://morizyun.github.io/), I am sold and resolve to write more, and hopefully to learn through sharing.
 
 There's a little mantra that I've picked up since I've started coding:
 
 ```
 Where you're stuck at is not a new place; you need to know how to search.
 ```
+[Kenji Mori](https://twitter.com/zyunnosuke), author of a [japanese tech blog](http://morizyun.github.io/), described how he kept writing the tech blog and how he and his team are benefiting by becoming better programmers and getting job offers. I am sold and resolve to write more, and hopefully to learn through sharing.
 
-Kenji's talk also adds a new line that:
+Kenji's talk also adds a new line that mantra:
 
 ```
 And you won't be the last one here, help the next guy out.
 ```
+In a similar tone, [Godfrey Chan](https://twitter.com/chancancode) gives an [abstract talk](https://engineers.sg/video/keynote-rethinking-computer-science-education-reddotrubyconf-2016--804) about education and teaching, and he suggests that we should all contribute and "Be the village".
 
-### It's not going to the moon
-A final takeaway is an echo from last year's conference: it is not that difficult to contribute. From documentation to refactoring to micro-improvements in code performance, there are many possibility of contribution to open-source and to the community.
-It's probably pride that's stopping me from contributing in trivial ways.
+### Conclusion
+Here comes a new member to the village! For more resources from the talk, see this great [summary gist](https://gist.github.com/cheeaun/43843c8b1c764825b9f3d63ed8f5bd78#file-rdrc2016-md).
 
-Here comes a new member to the village!
