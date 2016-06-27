@@ -3,6 +3,7 @@ layout: post
 title:  "blog commit 'init'"
 date:   2014-03-01 12:46:41 +0800
 categories: blogging
+comments: true
 ---
 
 This is yet another blog that I shall promise myself to keep. This one will talk about the projects and cool and uncool things that I've done.

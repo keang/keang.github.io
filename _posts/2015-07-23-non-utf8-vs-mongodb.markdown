@@ -2,7 +2,8 @@
 layout: post
 title:  "Non-utf8 vs Mongodb"
 date:   2015-07-23 03:23:41 +0800
-categories: bug mongodb utf8
+categories: bug mongodb
+comments: true
 ---
 We saw 3 instances of a user agent string that broke our Python queries; It came with a non-utf8 encoded ["orange.espana"](https://en.wikipedia.org/wiki/Orange_Espa%C3%B1a).
 

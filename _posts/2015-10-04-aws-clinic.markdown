@@ -3,6 +3,7 @@ layout: post
 title: "My Ops Clinic"
 date: 2015-10-04 23:48:00 +0800
 category: stack
+comments: true
 ---
 [deepo](http://www.deepo.io/) is upgrading our infrastructure yet again.
 

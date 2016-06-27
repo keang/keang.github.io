@@ -3,6 +3,7 @@ layout: post
 title:  "Joining the Flappy Craze"
 date:   2014-03-02 13:33:41 +0800
 categories: hack flappy
+comments: true
 ---
 **tl;dr**: my flappy clone [here](http://keang.github.io/flappy-quiz/).
 

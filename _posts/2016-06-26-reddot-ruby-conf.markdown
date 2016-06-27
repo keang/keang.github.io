@@ -3,6 +3,7 @@ layout: post
 title: "Reddot Ruby Conference"
 date: 2016-06-26 15:42:00 +0800
 category: blogging meetup
+comments: true
 ---
 I attended the 2016 [RedDotRubyConf](https://twitter.com/reddotrubyconf) last week, being sponsored by my company. Kudos to [Roomorama.com](http://www.roomorama.com) management for that!
 

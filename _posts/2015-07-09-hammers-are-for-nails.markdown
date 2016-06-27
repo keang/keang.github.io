@@ -3,6 +3,7 @@ layout: post
 title:  "Hammers are for nails"
 date:   2015-07-09 03:12:41 +0800
 categories: stack
+comments: true
 ---
 
 [deepo](http://www.deepo.io/) is upgrading our first minimal infrastructure.

@@ -3,6 +3,7 @@ layout: post
 title:  "Subtle bug coming from Rails' first_or_create"
 date:   2015-01-05 19:09:41 +0800
 categories: rails bug
+comments: true
 ---
 One very useful method provided by Rails is [`first_or_create`](http://apidock.com/rails/v4.1.8/ActiveRecord/Relation/first_or_create)
 
