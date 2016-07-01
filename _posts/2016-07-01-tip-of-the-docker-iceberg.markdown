@@ -162,6 +162,22 @@ redis:
   image: redis
 ```
 
+```yml
+# ./Dockerfile_test_pages
+FROM deepo/go-python:data-science
+RUN mkdir -p `/app
+WORKDIR /app
+COPY . /app
+RUN pip install -r requirements.txt
+CMD ["py.test"]
+```
+
+With the above set up, I can run an integration test command simply like so:
+
+```
+$ docker-compose -f docker-compose.test.yml run testpages
+```
+
 Recap
 -----
 
