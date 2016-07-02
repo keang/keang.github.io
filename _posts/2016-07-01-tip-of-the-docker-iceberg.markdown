@@ -6,7 +6,7 @@ category: stack
 comments: true
 ---
 Docker is gaining some popularity in recent months. While
-I am not advocating any bandwagon jumpings, the following Google Search Trend
+I am not advocating any bandwagon-jumpings, the following Google Search Trend
 graph highly suggests that Docker has been solving many people's problems:
 [![Docker vs Rails](/images/docker-vs-rails.png)][search_trend]
 [_Docker vs Rails Google search trends_][search_trend]
@@ -29,7 +29,7 @@ What is Docker
 
 That's pretty plain English, but also pretty high level, and [people still have disagreements][commit_strip].
 
-To me the most important things remember about Docker, so that it serves to help you in your dev env
+To me the most important things to remember about Docker, so that it serves to help you in your dev env
 is the following:
 - It's designed to contain your app/process/service.
 - You can create containers from images.
@@ -82,10 +82,10 @@ Normally I would let it run in the background. If, however, I decide that I need
 $ docker stop sleepy_spence
 ```
 
-The great thing here is that I now have a set up flow for... almost any service that I need to set up on my dev machine.
-As you saw in the example, I have mysql, postgres and redis dockerized. The time and effort saved here means you'll be
-able to quickly get down to pushing that hotfix from your brother's windows machine during your family retreat (true story).
-
+The great thing here is that I now have a set up flow for... almost any service that I need to set up on my dev machine, before
+I start hacking away my awesome webapp. As you saw in the example, I have mysql, postgres and redis dockerized.
+The time and effort saved here means you'll be able to quickly get down to pushing that hotfix from your brother's
+windows machine during your family retreat (true story).
 
 Setting up a container
 ------
@@ -103,7 +103,7 @@ images are left as an exercise for the reader.
 We find the [mysql docker image here](https://hub.docker.com/_/mysql/), from which we can see that, as of 01 July 2016, versions 5.5 to 5.7
 are available for us to pull and use.
 
-Most images comes with some minimal configurations, like env var, ports, file volume linking, etc. We can use [docker-compose](https://docs.docker.com/compose/)
+Most images come with some minimal configurations, like env var, ports, file volume linking, etc. We can use [docker-compose](https://docs.docker.com/compose/)
 to alleviate our task of remembering the rather long commands, which is a certainty if we configure everything inline.
 
 I create a `docker-compose.yml` file like so:
@@ -132,7 +132,7 @@ $ docker-compose stop mysql
 ```
 
 `docker-compose` is really powerful because it lets us declare container linkings and share `.env`, etc. The
-declarative style makes it easy to orchestrate multiple services accross different environments too, for example testing,
+declarative style makes it easy to orchestrate multiple services across different environments too, for example testing,
 staging, and even production. For example, I can have the following declaration that spins up new instances of
 worker, database, cache store, all done at the Continuous Integration service, thanks to docker-compose.
 
@@ -182,11 +182,11 @@ Recap
 -----
 
 This post aims to plant a seed of interest in docker, by showing how it can help with the set up of dev environment
-quickly, and also a small glimpse at how it can help manage services configurations in a declarative (and hence version-controllable) way.
+quickly, and also a small glimpse at how it can help manage services configurations in a declarative-and hence version-controllable-way.
 
-As the title of this post suggest, this is only the tip of the iceberg; there are many more things that is not covered,
-and I believe it is worthwhile to get aquainted with this handy software. I definitely learned a lot of things, even
-besides docker itself, after trying it out. I'm sure it'll be the same for many.
+As the title of this post suggest, this is only the tip of the iceberg; there are many more not covered features,
+and I believe it is worthwhile to get aquainted with this handy software. I definitely learned a lot from diving into
+docker, even on things other than docker itself. I'm sure it'll be the same for many.
 
 Happy dockering!
 
