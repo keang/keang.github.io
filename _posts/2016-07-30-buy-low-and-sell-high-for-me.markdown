@@ -25,9 +25,10 @@ low, close) ticks and buy/sell accordingly.
 But it seemed a bit too simplistic and I needed more literature to back up my first hypothesis before I would start coding. I downloaded
 Algorithmic and High Frequency trading. It's a text book, which painted for me a more definitive picture of the exchange market,
 and I finally grasp the Invisible Hand that I have so affectionately referred to since JC economics. I also saw the process of defining
-the decision, the cost function, finally analysing statistical models. Another great takeaway is the concept of a
-[statistical arbitrage](http://www.mathworks.com/discovery/statistical-arbitrage.html?requestedDomain=www.mathworks.com) Another book that
-I dived head first in was *A technical approach to trend analysis* by Michael C. Thomsett. It started out interesting, but quickly becomes
+the decision, the cost function, finally analysing statistical models. Also a great takeaway is the concept of a
+[statistical arbitrage.](http://www.mathworks.com/discovery/statistical-arbitrage.html?requestedDomain=www.mathworks.com)
+
+Another book that I dived head first in was *A technical approach to trend analysis* by Michael C. Thomsett. It started out interesting, but quickly becomes
 repetitive and unhelpful. Online forums provide better explaination and coverage. A friend introduced a good one -
 [babpips.com](http://www.babypips.com/school) which strikes a good balance between being informative and humourous. If there's one
 resource I would reccommend, it would the lesson series by babypips.com.
@@ -47,7 +48,7 @@ Another general strategy is to make lots of 0.7 probability trades rather than t
 Choosing a language
 ---
 
-When I was My plan by then was to build a fast backtest system, easily configurable algorithm, test with demo account, and then finally
+My plan by this time was to build a fast backtest system, easily configurable algorithm, test with demo account, and then finally
 trade with real account.
 I tried to use this opportunity to learn a functional language that would be up to the task of building a fast backtest system. Scala was a
 top candidate, with its promise of being friendly to OO programmers, and yet is also a full-blown functional language. Also it piggybacks on the rather mature java libraries echosystem. I'd skimmed through  through *Programming in Scala, Third Edition* by Venners, Odesky and Spoon. A great book with great introduction to functional programming,
@@ -82,7 +83,7 @@ One thing that I tell myself that I'd like to share here is that the initial suc
 While I attempted to spread the risk of trades by making many many small trades, the probability that each of those clusters of trade
 profiting is not independent, the expectation is not `n x P` and thus the risk diversification effect is not as much as I first imagined.
 
-Spreading the strategy to different currency pairs would be add greater diversification, but the coupling is still there because firstly, both EURUSD and AUDUSD are affected by USD's strength; and seocndly it's economics, everything is linked to everything.
+Spreading the strategy to different currency pairs would add greater diversification, but the coupling is still there because firstly, both EURUSD and AUDUSD are affected by USD's strength; and seocndly it's economics, everything is linked to everything.
 
 TODO
 ---
