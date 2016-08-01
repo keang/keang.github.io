@@ -2,7 +2,7 @@
 layout: post
 title:  "RegEx is fascinating"
 date:   2014-07-24 11:34:41 +0800
-categories: regex,hack
+categories: hack
 comments: true
 ---
 A few different projects called for the use of regex and until now, I still let go of a smile in amazement as I construct each regex query.

@@ -2,7 +2,7 @@
 layout: post
 title:  "Rspec'ing a Rails JSON Api"
 date:   2014-03-03 15:09:41 +0800
-categories: bug,rspec,render_views
+categories: bug
 comments: true
 ---
 `render_view` was the missing piece:

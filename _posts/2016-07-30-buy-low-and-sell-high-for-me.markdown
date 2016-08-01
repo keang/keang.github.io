@@ -2,7 +2,7 @@
 layout: post
 title: "Buy low and sell high for me"
 date: 2016-07-30 08:48:00 +0800
-category: machine-learning trading
+category: ai
 comments: true
 ---
 I tried my hands on algorithmic trading, in rather low frequency, and it works! sort of.
