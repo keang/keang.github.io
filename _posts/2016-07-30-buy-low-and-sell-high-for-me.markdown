@@ -5,7 +5,7 @@ date: 2016-07-30 08:48:00 +0800
 category: ai
 comments: true
 ---
-I tried my hands on algorithmic trading, in rather low frequency, and it works! sort of.
+I tried my hands at algorithmic trading, in rather low frequency, and it works! sort of.
 
 How I started
 ---
