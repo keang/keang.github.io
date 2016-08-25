@@ -98,8 +98,11 @@ The next things to do are probably:
 _______
 
 
+
 Update
 ---
+
+2016-08-25 16:50:00 +0800
 
 The RSI model continued it's trades every hour. On Aug 16, a wild price climb triggered many take-profits, and then it stalled, leaving my position with about $500 of unrealized profit.
 I was unnverved and manually closed the position through the Oanda android app. This is a great advantage of using APIs to make trades: I can still interface with Oanda as a regular
