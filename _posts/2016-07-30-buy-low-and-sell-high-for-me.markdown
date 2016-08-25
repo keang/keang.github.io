@@ -94,3 +94,16 @@ The next things to do are probably:
   * Try [tensorflow](https://www.tensorflow.org/)'s deep learning
   * Web interface to edit algorithms and test, something like [Quantopian's zipline](https://github.com/quantopian/zipline)
 
+
+### Update
+
+The rsi model continued it's trades every hour. On Aug 16, a wild price climb triggered many take-profits, but it stalled, leaving my position with about $500 of unrealized profit.
+I was unnverved and manually closed the position through the Oanda android app. This is a great advantage of using APIs to make trade: I can still interface with Oanda as a regular
+human account!
+
+I left it running in parallel with an updated algo (to be elaborated in a later post) And as of 25th Aug 00:00 (about 6 and a half week), it broke past 50% profit!
+![>50% profit!](/images/eurusd3.jpg)
+
+Around the time I manually closed the positions, the static model started selling short instead of its monthly buying streak, as seen in the graph above. Brexit shockwave and recovery is
+fitting in nicely with these particular rsi params, so I'll take this good performance with a jar of salt and just count myself lucky.
+
