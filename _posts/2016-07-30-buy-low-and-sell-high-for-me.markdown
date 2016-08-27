@@ -71,10 +71,10 @@ The outcome
 ---
 I started with SGD2000 in a demo account, and the static model started making some trades:
 
-![EUR_USD buy low 1](/images/eurusd1.jpg)
+![EUR_USD buy low 1](/images/eurusd1.jpg){: .center-image }
 
 With a little bit of luck, those trades were good bets, gaining 16.99% in the 3 weeks:
-![EUR_USD buy low 2](/images/eurusd2.jpg)
+![EUR_USD buy low 2](/images/eurusd2.jpg){: .center-image }
 
 Note to self
 ---
@@ -110,7 +110,7 @@ human account!
 
 I left it running in parallel with an updated algo (to be elaborated in a later post) And as of 25th Aug 00:00 (about 6 and a half week), it broke past 50% profit!
 
-![>50% profit!](/images/eurusd3.jpg)
+![>50% profit!](/images/eurusd3.jpg){: .center-image }
 
 Around the time I manually closed the positions, the static model started selling short instead of its monthly buying streak, as seen in the graph above. Brexit shockwave and recovery is
 fitting in nicely with these particular RSI params, so I'll take this good performance with a jar of salt and just count myself lucky.
