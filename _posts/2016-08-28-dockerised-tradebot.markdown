@@ -8,31 +8,31 @@ comments: true
 
 After some tweaks and cleanups, I've decided to share the code to a couple of friends as they expressed interests to have a bot trade for them too.
 
-To make things easire, I've dockerised the trading project, pushing the python2.7 image with dependencies installed, batteries included, to [Docker Hub](https://hub.docker.com/r/kakadadroid/python27-talib/)
+To make things easire, I've dockerised the trading project, bundling a python2.7 image with dependencies installed, batteries included, to [Docker Hub](https://hub.docker.com/r/kakadadroid/python27-talib/)
 
 This was in the hope that it'll be a one-liner when people run the code, after the one-time docker installation and git pull. And it'll work everywhere! Linux, Mac, Windows, what have you.
 
 Almost true.
 
-Windows 7 32 bit isn't supported. But I'll share how it organised the docker configs here.
+Windows 7 32 bit isn't supported. But I'll share how I organised the docker configs here.
 
 The following is roughly the plan:
 
 ![ec2-docker infrastructure](/images/docker.svg){: .center-image }
 
-First I use docker-compose to delare all the images:
+First I use docker-compose to declare all the images:
 
 
 ```
 # docker-compose.yml
-project-test:
+test:
   build: .
   dockerfile: Dockerfile.test
   env_file: test.env
   volumes:
     - ./:/usr/src/app
 
-project-live:
+live:
   build: .
   dockerfile: Dockerfile.live
   env_file: live.env
@@ -43,9 +43,27 @@ project-live:
 I have a pre-built image [hosted for free on Docker Hub](https://hub.docker.com/r/kakadadroid/python27-talib/) which builds on [Python:2.7](https://hub.docker.com/_/python/), installs [TA-lib](http://ta-lib.org/)
 and other smaller dependencies for the project.
 
-Then DOckerfile.live and Dockerfile.test are identical, pulling from the pre-built image, and appending different commands.
+Then Dockerfile.live and Dockerfile.test are identical, pulling from the pre-built image, and appending different commands:
 
-With the docker image successfully downloaded, the command to run becomes can now be a one-liner: `docker-compose run project-live`
+```
+# Dockerfile.live
+FROM kakadadroid/python27-talib
+MAINTAINER skeang@gmail.com
 
-Now how make this work on Windows 7... :fliptable:
+CMD python runner.py
+```
+
+```
+# Dockerfile.test
+FROM kakadadroid/python27-talib
+MAINTAINER skeang@gmail.com
+
+CMD py.test
+```
+
+With the docker image successfully downloaded, the command to trade looking at the current prices can now be a one-liner: `docker-compose run live`.
+
+Similarly, it's a one liner to run all tests: `docker-compose run test`
+
+Now, how make this work on Windows 7... :fliptable:
 
