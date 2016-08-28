@@ -46,19 +46,19 @@ and other smaller dependencies for the project.
 Then Dockerfile.live and Dockerfile.test are identical, pulling from the pre-built image, and appending different commands:
 
 ```
-# Dockerfile.live
-FROM kakadadroid/python27-talib
-MAINTAINER skeang@gmail.com
-
-CMD python runner.py
-```
-
-```
 # Dockerfile.test
 FROM kakadadroid/python27-talib
 MAINTAINER skeang@gmail.com
 
 CMD py.test
+```
+
+```
+# Dockerfile.live
+FROM kakadadroid/python27-talib
+MAINTAINER skeang@gmail.com
+
+CMD python runner.py
 ```
 
 With the docker image successfully downloaded, the command to trade looking at the current prices can now be a one-liner: `docker-compose run live`.
