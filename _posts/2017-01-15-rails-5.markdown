@@ -1,0 +1,17 @@
+---
+layout: post
+title:  "Rails 5"
+date:   2017-01-15 13:51:00 +0800
+categories: rails
+comments: true
+---
+
+Rails 5 has been out for a while now, but I only recently found a chance to try it out.
+
+I did a simple rails application and deployed on [Heroku](https://pocketurl.herokuapp.com/).
+
+It didn't make use of the Rails 5 new features though: [ActionCable](https://github.com/rails/rails/tree/master/actioncable), API mode, etc.
+
+But this was a fun short project to brush up TDD.
+
+See [source code here](https://github.com/keang/pocketurl).
