@@ -35,3 +35,12 @@ layout: default
   {% endif %}
 
 </article>
+
+<script src="https://code.highcharts.com/highcharts.js"></script>
+
+{% for js in page.jsarr %}
+  <script type="text/javascript">
+    {% include {{ js }} %}
+  </script>
+{% endfor %}
+
