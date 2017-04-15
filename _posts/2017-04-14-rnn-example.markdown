@@ -32,7 +32,8 @@ I've generated a simple series using modulus, and combination of `sinh` and `sin
 
 <div id="series"></div>
 
-While we can only use the first 80% of the data, we can run many many iterations (epochs) over the training data to continue to improve the cost function. The number of epochs is also configurable in the yaml file.
+While we can only train on the first 80% of the data, we can run many many iterations (epochs) over that training data and continue to tune model weights, and improving the cost function.
+The number of epochs is also configurable in the yaml file.
 
 The cost function here, for simplicity, is Mean Squared Error (MSE).
 
