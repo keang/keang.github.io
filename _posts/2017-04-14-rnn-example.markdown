@@ -11,7 +11,7 @@ jsarr:
 Recurrent Neural Network is a flavour of a mathematical model that is able to do many fascinating things.
 You can find very [well-written explanation here](http://colah.github.io/posts/2015-08-Understanding-LSTMs/) and [more examples here](http://karpathy.github.io/2015/05/21/rnn-effectiveness/).
 
-I have put together a simple hello-world example of the training of an RNN model, to predict a time-series using [Tensorflow](https://www.tensorflow.org/): https://github.com/bernoullio/rnn-example
+I have put together a simple hello-world example of the training of an RNN model, to predict a time-series using [Tensorflow](https://www.tensorflow.org/). Check out [the repo here.](https://github.com/bernoullio/rnn-example)
 
 The example uses tensorflow 1.0.0:
 
