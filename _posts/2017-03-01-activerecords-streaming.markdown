@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Streaming API with Rails and ActiveRecord"
-date:   2017-01-15 13:51:00 +0800
+date:   2017-03-01 17:36:17 +0800
 categories: rails
 comments: true
 ---
