@@ -11,9 +11,9 @@ is to support HTTP streaming. [This article](https://gist.github.com/CMCDragonka
 
 Here I will show some code snippets to making a streaming API in Rails.
 
-In Rails 4.2, we use (ActionController::Live)[http://api.rubyonrails.org/v4.2/classes/ActionController/Live.html], which is quite well documented.
+In Rails 4.2, we use [ActionController::Live](http://api.rubyonrails.org/v4.2/classes/ActionController/Live.html), which is quite well documented.
 
-```
+```ruby
 describe ' GET /my_stream' do
    let(:expected_records) do
      SoftwareEngineers.where('job_satisfaction > 9.0').select(:id, :title, :name)
@@ -33,7 +33,7 @@ describe ' GET /my_stream' do
 end
 ```
 
-```
+```ruby
 class Api::MyStreamController < ApplicationController
   include ActionController::Live
 
