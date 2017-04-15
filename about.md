@@ -3,7 +3,7 @@ layout: page
 title: About
 permalink: /about/
 ---
-I am a Full-stack Engineer at Roomorama.com, where codes are written in between foosball games.
+I am a polyglot software engineer. I write mainly ruby and python, picking up golang.
 
 My current obsession is Ruby, soccer and badminton.
 
