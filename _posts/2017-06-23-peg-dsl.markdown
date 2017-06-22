@@ -1,0 +1,9 @@
+---
+layout: post
+title:  "PEG for DSL"
+date:   2017-06-23 00:01:41 +0800
+categories: talk
+comments: true
+---
+In last month's Singapore Ruby Meetup, I had the opportunity to share about PEG and DSL, something that I learnt while implementing a rules feature at Pocketmath. It was
+my first talk and definitely will not be my last! See [the talk here.](goo.gl/xsiwmF) And [the slides here](https://goo.gl/o8UVag).
