@@ -67,7 +67,7 @@ So what I have in my global config file is as bellow:
 ```
 # ~/.rspec
 --color
---require /Users/ksong/work/quickfix_formatter.rb
+--require /Users/<you>/rspec_quickfix_formatter.rb
 --format QuickfixFormatter --out tmp/.quickfix_list
 --format progress
 ```
