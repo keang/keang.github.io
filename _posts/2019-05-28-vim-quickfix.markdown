@@ -101,7 +101,7 @@ else
 fi
 ```
 
-I spend quite a big chunk of work writing in vim and tmux, so optimizing that feedback cycle can add up to many seconds saved. And what can I do with all the saved, you ask?
+I spend quite a big chunk of work writing in vim and tmux, so optimizing that feedback cycle can add up to many seconds saved. And what can I do with all the saved, you ask? [Ask Kevin.](https://www.youtube.com/watch?v=_K-L9uhsBLM)
 
 ![Time is money](https://media.giphy.com/media/e4uG83tGjWDiE/giphy.gif){: .center-image }
 
