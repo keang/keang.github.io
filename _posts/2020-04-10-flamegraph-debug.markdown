@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Using flamegraph to improve debug CPU increase"
+title:  "Using flamegraph to improve CPU usage"
 date:   2020-04-10 21:51:43 +1000
 categories: bug
 comments: true
