@@ -7,15 +7,15 @@
 
 # Site settings
 title: development.log
-email: skeang@gmail.com
+email: keang@song.gg
 description: > # this means to ignore newlines until "baseurl:"
   This serves as a log of things I've learnt or observed. I'm a software engineer who's still naive and optimistic, and eager to get my hands dirty with codes.
   I'd love to have a chat!
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://www.keang.be" # the base hostname & protocol for your site
+url: "http://log.keang.song.gg" # the base hostname & protocol for your site
 twitter_username: skeang
 github_username:  keang
-timezone: Asia/Singapore
+timezone: Australia/Melbourne
 
 # Build settings
 markdown: kramdown
