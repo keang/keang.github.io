@@ -16,6 +16,7 @@ url: "http://log.keang.song.gg" # the base hostname & protocol for your site
 twitter_username: skeang
 github_username:  keang
 timezone: Australia/Melbourne
+permalink: /posts/:title:output_ext
 
 # Build settings
 markdown: kramdown
