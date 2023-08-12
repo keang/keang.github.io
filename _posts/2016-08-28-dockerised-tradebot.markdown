@@ -8,7 +8,7 @@ comments: true
 
 After some tweaks and cleanups, I've decided to share the code to a couple of friends as they expressed interests to have a bot trade for them too.
 
-To make things easire, I've dockerised the trading project, bundling a python2.7 image with dependencies installed, batteries included, to [Docker Hub](https://hub.docker.com/r/kakadadroid/python27-talib/)
+To make things easier, I've dockerised the trading project, bundling a python2.7 image with dependencies installed, batteries included, to [Docker Hub](https://hub.docker.com/r/kakadadroid/python27-talib/)
 
 This was in the hope that it'll be a one-liner when people run the code, after the one-time docker installation and git pull. And it'll work everywhere! Linux, Mac, Windows, what have you.
 
