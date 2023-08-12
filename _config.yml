@@ -20,3 +20,5 @@ permalink: /posts/:title:output_ext
 
 # Build settings
 markdown: kramdown
+kramdown:
+  hard_wrap: false
