@@ -14,7 +14,7 @@ Recently at work, we had two separate bugs/performance issues that was addressed
 We denormalised our table, avoided an expensive JOIN clause, and felt good about ourselves.
 
 One was an [ETL process](https://en.wikipedia.org/wiki/Extract,_transform,_load) loading slightly enriched rows from Postgres into Amazon Redshift, where our analysts do their queries.
-It's a table of `jobs`, and we want to one of the enrichment step is to add in the `categories` ids in to the record, so that queries will be faster (here the analysts had that great idea already).
+It's a table of `jobs`, and one of the enrichment steps is to add in the `categories` ids in to the record, so that queries will be faster (here the analysts had that great idea already).
 Unfortunately this enrichment/denormalisation of categories at ETL time is too slow, and for a long, long period we lived without the jobs records being updated in Redshift. 😔 
 
 When we finally came round to take another crack at this (there were mutliple attempts in the past), we ran an EXPLAIN (and used the [awesome visualisation here](https://tatiyants.com/pev)), and found out that the most expensive part was a join to the table `jobs_categories`, which was a junction table presumably created by default when the many-to-many relationship was set up at the beginning of time. 
