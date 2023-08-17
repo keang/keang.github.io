@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  Custom optimistic lock
-date:   2023-08-18 03:14:03 +1000
+date:   2023-08-18 00:14:03 +1000
 categories: hack
 comments: true
 ---
