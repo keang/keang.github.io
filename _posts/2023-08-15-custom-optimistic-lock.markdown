@@ -92,4 +92,4 @@ m.save(optimistic_lock: ["metadata->version = ?", m.metadata[:version]])
 In the medium term though we may just bite the bullet and add a new column for the model, because now we're discovering that the race condition is not confined to the busier "partition" of the business.
 So we might be able switch to the officially supported `Locking::Optimistic`.
 
-Anyways, it was an interesting ticket to work on, and the final solution would pass as a cord Rails module, so I enjoyed the whole process. 
+Anyways, it was an interesting ticket to work on, and the final solution would pass as an nice open-source Rails module (with a bit more work), so I enjoyed the whole process. 
