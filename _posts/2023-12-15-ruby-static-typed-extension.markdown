@@ -29,7 +29,7 @@ So at work I started to explore other non-foot-shooting figurative guns.
 I started with some criteria (an ex-colleague sold me the first 2):
 
 1. Support composable types and pattern matching
-1. Don't use Exceptions for control flow
+1. Discourage unhandled exceptions
 1. Interop with Ruby
 
 ### 1. Support composable types and pattern matching
