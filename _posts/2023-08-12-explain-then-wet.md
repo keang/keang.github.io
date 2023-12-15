@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "EXPLAIN, then wet yourselves"
+title:  "EXPLAIN, then get WET"
 date:   2023-08-12 23:43:21 +1000
 categories: bug 
 comments: true

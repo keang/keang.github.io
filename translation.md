@@ -1,6 +1,6 @@
 ---
 layout: bare
-title: Book Translation wanted
+title: Book translation wanted
 permalink: /translation/
 ---
 Hello!
