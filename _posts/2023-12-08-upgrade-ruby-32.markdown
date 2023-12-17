@@ -28,7 +28,7 @@ We often take up such short-term tech debt, and promise to pay it back soon whil
 
 About four weeks later, we finally came back to it. (After some team members returned from leave too). 
 
-After an amount of time that I'm not proud to disclose, we concluded from our existing metrics that only one worker step that degraded in performance: the piece that queries Mongo and evaluate the returned results to find the best match. 
+We concluded from our existing metrics that only one worker step that degraded in performance: the piece that queries Mongo and evaluate the returned results to find the best match. 
 The evaluation of the query result was done in Ruby, rather than included in the query to Mongo because it was a heuristic-based algorithm.
 
 We found that our Resque workers that should be forking only once every 100 jobs was reverted to not only forking every job, but exiting every job. That meant we did not have much time for JIT optimizer to do its warm up and magic at all.
@@ -36,7 +36,7 @@ That was fixed fairly easily by removing the conflicting gem "resque-multi-job-f
 Now each tasks stayed online for much longer. 
 However it still didn't address the increased processing times. 
 
-I reached for code profiling, because now we are trying to compare 2 different code, and peek into the differences that makes canary so much slower.
+I reached for "code profiling", because now we are trying to compare 2 different code, and peek into the differences that makes canary so much slower.
 After failing to integrate Datadog Continuous Profiling, I went back to adhoc profiling (running a small profiling script that wraps a suspected snippet), this time using [stackprof](https://github.com/tmm1/stackprof) and the accompanying flamegraph viewer [stackprof-webnav](https://github.com/alisnic/stackprof-webnav) (complete with a minimap!). I did this on an EC2 box that had access to Mongo, but not the ECS containers where the production workers were running (this will be important later.)
 
 ![Flamegraph identified OpenStruct as the culprit](/images/stackprof-webnav-ruby-32.png){: .center-imge }
@@ -59,7 +59,7 @@ Lo and behold, the metrics shows the average of the 95-percentile process time a
 
 More logs were added, and particularly useful is the actual raw value in the field when the problematic step took too long.
 I ran the adhoc profiling code again on the poisonous raw value, and indeed it took so very long on Ruby 3.2, even with the fix, even back in ruby 3.1.
-All 3 cases took more than 90s. Profiled code behave differently from production code :thinking:
+All 3 cases took more than 90s. Profiled code behave differently from production code 🤔.
 
 Maybe we didn't JIT enough? I considered switching to TruffleRuby for the ultimate JIT'ing. I almost threw in the tower here and decided to go to sleep.
 
@@ -72,10 +72,10 @@ The next morning, I tried the adhoc script on the production container itself:
     <img src="/images/surprise-pikachu.png" alt="Surprise pikachu" class="center-imge">
 </figure>
 
-ECS was killing the jobs that ran out of memory. :facepalm: [Survivorship bias!](https://en.wikipedia.org/wiki/Survivorship_bias) 
+ECS was killing the jobs that ran out of memory. 🤦 [Survivorship bias!](https://en.wikipedia.org/wiki/Survivorship_bias) 
 This fallacy caused us to be blinded from the really slow jobs. They were so bad that we just killed the container and didn't even send the timing metric.
 
-And the fix was good enough that we were able to complete those paralyzing jobs, such that larger timing values were sent in and brought the 95-percentile stats up.
+And the fix was enough of an improvement that we were able to complete those paralyzing jobs, such that larger timing values were sent in and worsening the 95-percentile process time.
 
 This hypothesis was supported by the fact that after we rolled the fix out to master, the aggregated metrics did improve, and now the worker is indeed slightly faster than what it was before the ruby upgrade, just as predicted by the adhoc profiling exercise.
 The canary worker were just unlucky and picked up the poisonous data in the hour that I was monitoring.
