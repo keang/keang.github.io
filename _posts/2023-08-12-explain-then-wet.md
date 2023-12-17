@@ -17,10 +17,10 @@ One was an [ETL process](https://en.wikipedia.org/wiki/Extract,_transform,_load)
 It's a table of `jobs`, and one of the enrichment steps is to add in the `categories` ids in to the record, so that queries will be faster (here the analysts had that great idea already).
 Unfortunately this enrichment/denormalisation of categories at ETL time is too slow, and for a long, long period we lived without the jobs records being updated in Redshift. 😔 
 
-When we finally came round to take another crack at this (there were mutliple attempts in the past), we ran an EXPLAIN (and used the [awesome visualisation here](https://tatiyants.com/pev)), and found out that the most expensive part was a join to the table `jobs_categories`, which was a junction table presumably created by default when the many-to-many relationship was set up at the beginning of time. 
+When we finally came round to take another crack at this (there were multiple attempts in the past), we ran an EXPLAIN (and used the [awesome visualisation here](https://tatiyants.com/pev)), and found out that the most expensive part was a join to the table `jobs_categories`, which was a junction table presumably created by default when the many-to-many relationship was set up at the beginning of time. 
 For context, our `jobs` table had grown quite big, and we had [partitioned it](https://www.postgresql.org/docs/current/ddl-partitioning.html) by a timestamp column, and dropping older partitions as they are no longer needed. 
 Except that we did not also partition the junction table, and hence that table has many many useless rows, keeping track of jobs that we already dropped, again from the beginning of time.
-The solution was to denormlise this junction table and make it an array column on `jobs`. This required a few coordinated steps:
+The solution was to de-normlise this junction table and make it an array column on `jobs`. This required a few coordinated steps:
 - create the new column `jobs.category_ids`
 - "double-write": we write to both the new column and the old junction table for new jobs records
 - Backfilling: run a worker to update old `jobs` records with the category_ids 

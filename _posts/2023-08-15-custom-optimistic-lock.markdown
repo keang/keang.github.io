@@ -26,7 +26,7 @@ TRANSACTION  (24.3ms) COMMIT
 # Race condition
 
 A [race condition](https://en.wikipedia.org/wiki/Race_condition) is a scenario that arises when multiple workers try to write to the same row, concurrently.
-When I first learnt of the term, I thought that this is a rare scenario that only the busiest systems, doing high frequency trading or something, that needs to handle that.
+When I first learned of the term, I thought that this is a rare scenario that only the busiest systems, doing high frequency trading or something, that needs to handle that.
 
 But "concurrently" doesn't mean "the database receive the UPDATE request at the exact same moment in time"; the two workers could be long running transactions, that finished in an unexpected order.
 For example, at work we have an enrichment pipeline which processes incoming events for a model:
@@ -37,7 +37,7 @@ For example, at work we have an enrichment pipeline which processes incoming eve
 
 The process would take 1s to 5s. 
 But because we have a lot of dependent downstream APIs with retries, the process time could spike to 150s 😱
-During that time, if a second event is fired from upstream, then we have very high probabilty that the second event finishes earlier and tries to save to the databse first.
+During that time, if a second event is fired from upstream, then we have very high probability that the second event finishes earlier and tries to save to the database first.
 
 # Half-empty or half-full
 
@@ -45,8 +45,8 @@ There are two strategies to address a potentially-racing update: pessimistic or 
 
 In pessimistic locking, we assume someone would try to touch our row and so we lock everyone else out.
 [Postgres provides](https://www.postgresql.org/docs/current/mvcc-intro.html) 2 mechanisms: 
-- **transaction isolation levels**: we declare that our transaction requires an elevated level of isolation, so when both workers commit, postgres would tell teh 
-- **locks**: we explicitly aquire a lock for the row, and release it after we're done
+- **transaction isolation levels**: we declare that our transaction requires an elevated level of isolation, so when both workers commit, postgres would inform the other one.
+- **locks**: we explicitly acquire a lock for the row, and release it after we're done
 
 On the other hand, optimistic locking assumes that most of the time the updates would happen fine, and a race condition is a rare scenario. 
 so we first attempt to update the row, adding a condition that the row we're updating still looks like what we expect. 
@@ -70,7 +70,7 @@ I set out to implement that idea: add an additional condition when we do `Exampl
 
 I did feel kinda dirty, monkey patching private methods with names starting with an underscore.
 
-But while debugging my attempt, I learnt that this is how a lot of core ActiveRecord features are implemented: 
+But while debugging my attempt, I learned that this is how a lot of core ActiveRecord features are implemented: 
 
 - `ActiveRecord::AttributeMethods::Dirty`
 - `ActiveRecord::Timestamp`
