@@ -9,10 +9,10 @@ comments: true
 As Ruby 3.3 is about to be released, I thought I'd write about our recent experience upgrading from Ruby 3.1 to 3.2 - it's now or never!
 
 > Code profiling
-
+> ...
 > survivorship bias
-
-> "just write better code".
+> ...
+> optimize inherited code
 
 We have a worker that enriches an incoming stream of jobs. 
 The volume is large enough that, even though we frequently clear the queue, our histogram of processed jobs is still quite flat.
@@ -112,7 +112,8 @@ Prod (before/after): `Ruby3.2 YJIT SkipDiagnostics` > `Ruby3.1` > `Ruby3.2 YJIT`
 
 # Conclusion
 
-- So in the end JIT didn't do much for us, but understanding the code we inherited and optimizing them was the answer. 
+- So in the end JIT didn't do much for us,
+- but understanding the code we inherited and optimizing them was the answer. Git gud!
 - Profiling saves the day again!
 - We need better observability: 
   + Hunting down the slowest steps in the worker using Datadog should be more systematic
