@@ -6,6 +6,8 @@ categories: bug
 comments: true
 ---
 
+As Ruby 3.3 is about to be released, I thought I'd write about our recent experience upgrading from Ruby 3.1 to 3.2 - it's now or never!
+
 > Code profiling
 
 > survivorship bias

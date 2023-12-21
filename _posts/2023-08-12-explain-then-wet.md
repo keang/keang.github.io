@@ -20,7 +20,7 @@ Unfortunately this enrichment/denormalisation of categories at ETL time is too s
 When we finally came round to take another crack at this (there were multiple attempts in the past), we ran an EXPLAIN (and used the [awesome visualisation here](https://tatiyants.com/pev)), and found out that the most expensive part was a join to the table `jobs_categories`, which was a junction table presumably created by default when the many-to-many relationship was set up at the beginning of time. 
 For context, our `jobs` table had grown quite big, and we had [partitioned it](https://www.postgresql.org/docs/current/ddl-partitioning.html) by a timestamp column, and dropping older partitions as they are no longer needed. 
 Except that we did not also partition the junction table, and hence that table has many many useless rows, keeping track of jobs that we already dropped, again from the beginning of time.
-The solution was to de-normlise this junction table and make it an array column on `jobs`. This required a few coordinated steps:
+The solution was to denormlise this junction table and make it an array column on `jobs`. This required a few coordinated steps:
 - create the new column `jobs.category_ids`
 - "double-write": we write to both the new column and the old junction table for new jobs records
 - Backfilling: run a worker to update old `jobs` records with the category_ids 
@@ -28,9 +28,9 @@ The solution was to de-normlise this junction table and make it an array column 
 
 We took the opportunity to port it from a custom Golang script to [Luigi pipeline](https://luigi.readthedocs.io/)) as well. The backfilling worker is still running, expecting to be done over the weekend, and next week we could roll out the new luigi ETL pipeline.
 
-The second issue - similarly solved with "EXPLAIN, denormalize, avoid join" - was an internal admin console where a query spent 95% of query time in a single INDEX scan on the avoidable JOIN.
+The second issue - similarly solved with "EXPLAIN, denormalise, avoid join" - was an internal admin console where a query spent 95% of query time in a single INDEX scan on the avoidable JOIN.
 ![a single slow join](/images/slow-join.png){: .center-imge }
 
-Lessons learnt: 
+Lessons learned: 
 - EXPLAIN your queries
 - The downsides of denormalisation may be worth the query performance boost
