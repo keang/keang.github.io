@@ -15,12 +15,12 @@ But when a project matures, requirements starts to stabilize.
 Changes in the domain happens slowly.
 It takes discipline to maintain the growing pile of test cases, which are essential for any form of deployment confidence.
 
-> too many footguns
+> too many foot guns
 
 If you inherit a poorly tested code, good luck.
 If you push the boundary of the Rails convention, have fun.
 
-I heard another way to put it: there are many footguns in the language. 
+I heard another way to put it: there are many foot guns in the language. 
 On top of that, after you shot yourself in the foot, you *want* to take the blame. 
 If only I was smarter or had more foresight or was more disciplined, I could've done it the right way that time.
 
@@ -75,7 +75,7 @@ We already covered all combinations, but Sorbet still thinks we have not us to c
 
 ### 2. Discourages unhandled exception
 
-The presence and prevalance of runtime errors as control flow in Ruby violates the [Principle of least astonishment](https://en.wikipedia.org/wiki/Principle_of_least_astonishment), and necessitate meticulous use of `rescue`s.
+The presence and prevalence of runtime errors as control flow in Ruby violates the [Principle of least astonishment](https://en.wikipedia.org/wiki/Principle_of_least_astonishment), and necessitate meticulous use of `rescue`s.
 
 Half of a Ruby dev's time is debugging the runtime errors. Is [this monstrosity](https://www.exceptionalcreatures.com/bestiary/NoMethodError.html#undefined-method-for-nil-nilclass) familiar in your error logging service?
 
