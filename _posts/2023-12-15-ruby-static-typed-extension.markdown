@@ -117,4 +117,5 @@ After some googling, the following is the list of possible languages that we cou
 | Swift      | {{ T }}          | {{ T }}       | {{ T }} [FFI](https://medium.com/@MarcioK/swift-ruby-interoperability-9a0ce9a70fd2)      |
 {: .table}
 
-In subsequent posts I would like to get into more details of each languages that we tried.
+In subsequent posts I would like to get into more details of each languages that we tried:
+- [Rust](/posts/rust-extension.html)
