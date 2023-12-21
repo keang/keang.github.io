@@ -22,7 +22,7 @@ For a major release, where we brace ourselves for a potential degraded performan
 This time we were upgrading our Ruby version from 3.1 to 3.2, to enable YJIT, expecting our workers to be faster. So we decided to do canary rollout as well, so we could see from the charts how much Ruby 3.2 canary workers are better. 
 Canary cluster running Ruby 3.2 was rolled out, and *\*drumrolls\** ... it was slower!
 
-![Ruby 3.2 with YJIT was slightly slower than 3.1](/images/ruby-32-slower.png){: .center-imge }
+![Ruby 3.2 with YJIT was slightly slower than 3.1](/images/ruby-32-slower.png){: .center-image.box }
 
 Prod: `Ruby3.1` > `Ruby3.2 YJIT`
 
@@ -47,7 +47,7 @@ Prod: `Ruby3.1` > `Ruby3.2 YJIT LongRunningProcess`
 I reached for "code profiling", because now we are trying to compare 2 different code, and peek into the differences that makes canary so much slower.
 After failing to integrate Datadog Continuous Profiling, I went back to adhoc profiling (running a small profiling script that wraps a suspected snippet), this time using [stackprof](https://github.com/tmm1/stackprof) and the accompanying flamegraph viewer [stackprof-webnav](https://github.com/alisnic/stackprof-webnav) (complete with a minimap!). I did this on an EC2 box that had access to Mongo, but not the ECS containers where the production workers were running (this will be important later.)
 
-![Flamegraph identified OpenStruct as the culprit](/images/stackprof-webnav-ruby-32.png){: .center-imge }
+![Flamegraph identified OpenStruct as the culprit](/images/stackprof-webnav-ruby-32.png){: .center-image.box }
 
 Found the culprit! It was OpenStruct (probably not clear from the static screenshot above though.) There were too many instatiations in the recursive `quick_sort`, and each OpenStruct intialization was quite slow. 
 
@@ -94,8 +94,8 @@ The next morning, I tried the adhoc script on the production container itself:
 - On Ruby 3.2 before the fix, the profiling script got *killed*. 
 - On Ruby 3.1, the script again got *killed*. 
 
-<figure class="image is-128x128">
-    <img src="/images/surprise-pikachu.png" alt="Surprise pikachu" class="center-imge">
+<figure class="image is-64x64">
+    <img src="/images/surprise-pikachu.png" alt="Surprise pikachu" class="center-image">
 </figure>
 
 ECS was killing the jobs that ran out of memory. 🤦 This is a case of [Survivorship bias](https://en.wikipedia.org/wiki/Survivorship_bias) 
@@ -108,7 +108,7 @@ The canary worker were just unlucky and picked up the poisonous data in the hour
 
 Prod (before/after): `Ruby3.2 YJIT SkipDiagnostics` > `Ruby3.1` > `Ruby3.2 YJIT`
 
-![Ruby 3.2 recovered](/images/ruby-32-recovered.png){: .center-imge }
+![Ruby 3.2 recovered](/images/ruby-32-recovered.png){: .center-image.box }
 
 # Conclusion
 
