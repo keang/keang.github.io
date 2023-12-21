@@ -51,9 +51,9 @@ impl job {
 }
 ```
 The above would panic (raise a runtime error) if the method `deserialize` didn't succeed.
-I suppose it still takes judgement and discipline to implement all the erorr handling upfront.
+I suppose it still takes judgment and discipline to implement all the error handling up front.
 
-There is also an idiamatic way of bubbling up the error so the caller handle the error instead: 
+There is also an idiomatic way of bubbling up the error so the caller handle the error instead: 
 ```rust
 impl job {
     pub fn new(kw: RHash) -> Result<Self, magnus::error::Error> {
@@ -65,7 +65,7 @@ impl job {
 
 # There are a lot of meta-programming
 
-In Rust there are many marcos, which are like annotations that generates more Rust code. For example:
+In Rust there are many macros, which are like annotations that generates more Rust code. For example:
 
 ```rust
 use serde::Deserialize;
@@ -110,7 +110,12 @@ fn init() -> Result<(), Error> {
 ```
 This adds incentive for us to keep the API/interface narrow.
 
-I wasn't able to get the Rust code to use a class already defined in the Ruby world, so for example we can't pass a Ruby instance of `Job` directly into the Rust world, but instead we pass the serialized data in, and let Rust/magnus deserialize into a corresponding Rust type instead.
+We weren't able to get the Rust code to use a class already defined in the Ruby world, so for example we couldn't make Rust code return an instance of "QcResult" if it was defined in Ruby: the instance methods or QcResult don't get defined/exposed. 
+This means we couldn't use a simple ruby `QcResult = Data.define(:codes)`, for example.
+We had to define a regular Ruby class using Rust syntax. Maybe one day Data will be supported.
+
+And another caveat is that the values of a Rust HashMap or Vec (corresponding to Ruby Hash and Array) can only be primitive types, not a user defined type.
+When trying to return an array of `QcCheck`, we had to serialize it into a plain Hash with primitive values, so caller have to deal with that as well.
 
 # Distracting memory management code
 As seen in the example for the pattern matching, there are a lot of calls to `iter()`, `clone()`, `to_string()` and `collect()` which would not be needed in Ruby. 
