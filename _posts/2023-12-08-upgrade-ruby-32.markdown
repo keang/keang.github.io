@@ -43,7 +43,7 @@ After failing to integrate Datadog Continuous Profiling, I went back to adhoc pr
 
 ![Flamegraph identified OpenStruct as the culprit](/images/stackprof-webnav-ruby-32.png){: .center-imge }
 
-Found the culprit! OpenStruct. (probably not clear from the static screenshot above though)
+Found the culprit! It was OpenStruct (probably not clear from the static screenshot above though.) There were too many instatiations in the recursive `quick_sort`, and each OpenStruct intialization was quite slow. 
 
 Well, besides YJIT, the other interesting addition in Ruby 3.2 was the [Data class](https://docs.ruby-lang.org/en/3.2/Data.html); perfect time to refactor!
 Profiled code snippet proved that our fix works, we improved the performance by about 66%!
