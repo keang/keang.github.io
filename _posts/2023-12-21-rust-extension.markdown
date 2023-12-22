@@ -79,7 +79,7 @@ pub struct Job {
 }
 ```
 
-Here `Debug` is a stdlib "trait", whereas `Validate` and `Deserialize` came from the crate "serde" and "validator". I (ab)use quite a lot of meta-programming in Ruby, and it was interesting to see that in the supposedly "less magical" language.
+Here `Debug` is a stdlib ["trait" (or an interafce)](https://rust-book.cs.brown.edu/ch10-02-traits.html), whereas `Validate` and `Deserialize` came from the [crate (counterpart of Ruby's gem or module)](https://rust-book.cs.brown.edu/ch07-01-packages-and-crates.html) "serde" and "validator". I (ab)use quite a lot of meta-programming in Ruby, and it was interesting to see that in the supposedly "less magical" language.
 
 # Crossing worlds
 
