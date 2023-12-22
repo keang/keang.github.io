@@ -70,7 +70,7 @@ editor.rb:44: Control flow could reach T.absurd because the type [T::Boolean, T:
 Errors: 1
 ```
 
-We already covered all combinations, but Sorbet still thinks we have not us to covered `T::Boolean, T::Boolean` :(
+We already covered all combinations, but Sorbet still thinks we have not covered `T::Boolean, T::Boolean` :(
 
 
 ### 2. Discourages unhandled exception
