@@ -110,12 +110,12 @@ fn init() -> Result<(), Error> {
 ```
 This adds incentive for us to keep the API/interface narrow.
 
-We weren't able to get the Rust code to use a class already defined in the Ruby world, so for example we couldn't make Rust code return an instance of "QcResult" if it was defined in Ruby: the instance methods or QcResult don't get defined/exposed. 
-This means we couldn't use a simple ruby `QcResult = Data.define(:codes)`, for example.
+We weren't able to get the Rust code to use a class already defined in the Ruby world, so for example we couldn't make Rust code return an instance of "QcResult" if it was defined in Ruby: the instance methods of QcResult don't get defined/exposed. 
+This means we couldn't use a simple ruby `QcResult = Data.define(:failure_codes)`, for example.
 We had to define a regular Ruby class using Rust syntax. Maybe one day Data will be supported.
 
-And another caveat is that the values of a Rust HashMap or Vec (corresponding to Ruby Hash and Array) can only be primitive types, not a user defined type.
-When trying to return an array of `QcCheck`, we had to serialize it into a plain Hash with primitive values, so caller have to deal with that as well.
+And another caveat is that the values of a Rust HashMap and Vec (corresponding to Ruby Hash and Array) can only be primitive types, not a user defined type.
+When trying to return an array of `QcCheck`, we had to serialize it into a plain Hash with primitive values, so the caller have to deal with that as well.
 
 # Distracting memory management code
 As seen in the example for the pattern matching, there are a lot of calls to `iter()`, `clone()`, `to_string()` and `collect()` which would not be needed in Ruby. 

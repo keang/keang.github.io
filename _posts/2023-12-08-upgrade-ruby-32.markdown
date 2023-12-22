@@ -99,7 +99,7 @@ The next morning, I tried the ad hoc script on the production container itself:
 </figure>
 
 ECS was killing the jobs that ran out of memory. 🤦 This is a case of [Survivorship bias](https://en.wikipedia.org/wiki/Survivorship_bias) 
-blinding from the really slow jobs. They were so bad that the container were just killed and didn't even send the timing metric.
+blinding us from the really slow jobs. They were so bad that the container were just killed and didn't even send the timing metric.
 
 And the fix was enough of an improvement that we were able to complete those paralyzing jobs, such that larger timing values were sent in and worsening the 95-percentile process time.
 
