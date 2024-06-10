@@ -1,6 +1,6 @@
 ## New post
 ```
-slug=some-thing-cool make new
+slug=domain-modeling-made-functional make new
 ```
 
 ## Serve locally
